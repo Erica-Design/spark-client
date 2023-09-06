@@ -1,7 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
   swcMinify: true,
+  images: {
+    unoptimized: true,
+    domains: [
+      "spark-media.s3.ap-northeast-2.amazonaws.com",
+      "via.placeholder.com"
+    ],
+  }
 }
 
 module.exports = nextConfig
