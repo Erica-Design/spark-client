@@ -14,12 +14,14 @@ jobs:
           ls -alR ${{ github.workspace }}
 
       - name: npm install and build
+        working-directory: ${{ github.workspace }}
         run: |
           npm install
           npm run build
 
       - name: serverless deploy
         uses: serverless/github-action@master
+        working-directory: ${{ github.workspace }}
         with:
           args: -c "serverless plugin install --name serverless-finch && echo "y" | serverless client deploy"
           entrypoint: /bin/sh
