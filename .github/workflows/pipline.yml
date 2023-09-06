@@ -21,7 +21,7 @@ jobs:
 
       - name: serverless deploy
         uses: serverless/github-action@master
-        working-directory: ${{ github.workspace }}
+        # working-directory: ${{ github.workspace }}
         with:
           args: -c "serverless plugin install --name serverless-finch && echo "y" | serverless client deploy"
           entrypoint: /bin/sh
