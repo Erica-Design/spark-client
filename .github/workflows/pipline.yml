@@ -9,15 +9,14 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Run ls on workplace
-        run: |
-          ls -alR ${{ github.workspace }}
-
       - name: npm install and build
         working-directory: ${{ github.workspace }}
         run: |
           npm install
           npm run build
+      - name: Run ls on workplace
+        run: |
+          ls -alR ${{ github.workspace }}
 
       - name: serverless deploy
         uses: serverless/github-action@master
