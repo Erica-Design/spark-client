@@ -8,6 +8,8 @@ import getPosting from "@services/posting/get/getPosting";
 import getBestPosting from "@services/posting/get/getBestPosting";
 import MobileMainPage from "@components/mobile";
 import { Post } from "@utils/types";
+import DesktopMainPage from "@components/desktop";
+import BaseLayout from "@components/base/layout";
 
 const Home: NextPage = () => {
   const isMobile = useMobile();
@@ -70,20 +72,27 @@ const Home: NextPage = () => {
   if (categoryLoading || postsLoading || bestPostLoading)
     return <div>Loading...</div>;
 
-  if (isMobile)
-    return (
-      <MobileMainPage
-        posts={posts}
-        categories={categories}
-        sparkPosts={sparkPosts}
-        choices={choices}
-        handleChoices={handleChoices}
-      />
-    );
-  // return (
-  //     <DesktopMainPage posts={posts} categories={categories} sparkPosts={sparkPosts} choices={choices}
-  //                      handleChoices={handleChoices}/>
-  // );
+  return (
+    <BaseLayout isMobile={isMobile}>
+      {isMobile ? (
+        <MobileMainPage
+          posts={posts}
+          categories={categories}
+          sparkPosts={sparkPosts}
+          choices={choices}
+          handleChoices={handleChoices}
+        />
+      ) : (
+        <DesktopMainPage
+          posts={posts}
+          categories={categories}
+          sparkPosts={sparkPosts}
+          choices={choices}
+          handleChoices={handleChoices}
+        />
+      )}
+    </BaseLayout>
+  );
 };
 
 export default Home;
