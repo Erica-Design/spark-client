@@ -13,11 +13,6 @@ jobs:
         run: |
           ls -alR ${{ github.workspace }}
 
-      - name: Run ls
-        run: |
-          cd ../
-          ls -alR
-
       - name: npm install and build
         run: |
           npm install
@@ -26,7 +21,7 @@ jobs:
       - name: serverless deploy
         uses: serverless/github-action@master
         with:
-          args: -c "serverless plugin install install -n serverless-finch && serverless client deploy"
+          args: -c "serverless plugin install -n serverless-finch && serverless client deploy"
           entrypoint: /bin/sh
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
