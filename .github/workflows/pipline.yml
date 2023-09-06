@@ -16,7 +16,10 @@ jobs:
           node-version: 16.x
 
       - name: Run ls
-        run: ls -la
+        run: |
+          ls -alR ${{ github.workspace }}
+          pwd
+
       - name: npm install, build, and test
         run: |
           npm install
