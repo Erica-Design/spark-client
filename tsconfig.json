@@ -16,17 +16,23 @@
     "incremental": true,
     "paths": {
       "@icons/*": [
-        "./src/app/icons/*"
+        "./icons/*"
       ],
       "@components/*": [
-        "./src/components/*"
+        "./components/*"
       ],
       "@utils/*": [
-        "./src/app/utils/*"
+        "./utils/*"
       ],
       "@atom/*": [
-        "./src/app/atoms/*"
-      ]
+        "./service/*"
+      ],
+      "@services/*": [
+        "./services/*"
+      ],
+      "@hooks/*": [
+        "./hooks/*"
+      ],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
