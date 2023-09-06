@@ -5,7 +5,7 @@ import MobileLoginButton from "@icons/mobileloginbutton";
 import useUser from "@hooks/useUser";
 
 const MobileHeader = () => {
-  const userData = useUser();
+  const user = useUser();
 
   return (
     <div className="flex flex-row m-2">
@@ -18,8 +18,8 @@ const MobileHeader = () => {
           <span className="font-normal mr-1">ERICA DESIGN</span> ARCHIVING
         </h1>
       </div>
-      {userData ? (
-        <MobileMypageButton buttonImg={userData.departmentCode} />
+      {user ? (
+        <MobileMypageButton buttonImg={user.departmentCode} userId={user.id} />
       ) : (
         <MobileLoginButton />
       )}

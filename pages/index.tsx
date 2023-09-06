@@ -6,9 +6,9 @@ import { useQuery } from "@tanstack/react-query";
 import getCategory from "@services/category/get/getCategory";
 import getPosting from "@services/posting/get/getPosting";
 import getBestPosting from "@services/posting/get/getBestPosting";
-import MobileMainPage from "@components/mobile";
+import MobileMainPage from "@components/mobile/pages";
 import { Post } from "@utils/types";
-import DesktopMainPage from "@components/desktop";
+import DesktopMainPage from "@components/desktop/pages";
 import BaseLayout from "@components/base/layout";
 
 const Home: NextPage = () => {

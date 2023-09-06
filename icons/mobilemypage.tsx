@@ -47,7 +47,7 @@ export default function MobileMypageButton(props: any) {
           <div className="text-center justify-center">
             <div className="">
               <Link
-                href="/users/me"
+                href={`/users/${props.userId}`}
                 className="flex items-center space-x-2 border border-b-black outline-none"
               >
                 <div className="p-3">

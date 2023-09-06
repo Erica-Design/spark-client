@@ -2,6 +2,7 @@ import Slider from "react-slick";
 import { Post } from "@utils/types";
 import Link from "next/link";
 import React, { FC, useRef } from "react";
+import Image from "next/image";
 
 const slickSettings = {
   dots: false,
@@ -32,7 +33,7 @@ const MobileSlider: FC<MobileSliderProps> = ({ sparkPosts }) => {
           return (
             <Link key={index} href={`/post/${post.id}`}>
               <div className="relative mt-3 mr-3 cursor-pointer" key={index}>
-                <img
+                <Image
                   className="w-[209px] h-36"
                   width={210}
                   height={144}

@@ -9,8 +9,7 @@ import useUser from "@hooks/useUser";
 import LoginButton from "@components/desktop/loginButton";
 
 export default function Header() {
-  const userData = useUser();
-
+  const user = useUser();
   const [open, setOpen] = useState(false);
   const modalRef = useRef<any>(null);
 
@@ -30,6 +29,7 @@ export default function Header() {
             ref={modalRef}
             open={() => setOpen(true)}
             close={() => setOpen(false)}
+            user={user}
           />
           <Link
             href="/upload"
@@ -38,7 +38,7 @@ export default function Header() {
             새로운 작업물 업로드
           </Link>
         </div>
-        {open && userData && (
+        {open && user && (
           <div
             ref={modalRef}
             className="bg-[#000] opacity-80 w-[330px] h-[205px] absolute z-20 left-24 top-6"
@@ -55,19 +55,22 @@ export default function Header() {
                 </div>
                 <div>
                   <p className="font-['Pretendard'] font-bold text-[18px]">
-                    {userData!.username}
+                    {user!.username}
                   </p>
                   <p className="font-['Pretendard'] font-bold flex text-[14px]">
-                    {userData.departmentCode}{" "}
+                    {user.departmentCode}{" "}
                     <p className="font-normal ml-1">
-                      {userData.shortStudentNumber}
+                      {user.shortStudentNumber}
                     </p>
                   </p>
                 </div>
               </div>
               <hr className="py-3" />
               <div className="space-y-7">
-                <Link href="/users/me" className="flex items-center space-x-4">
+                <Link
+                  href={`/users/${user.id}`}
+                  className="flex items-center space-x-4"
+                >
                   <div>
                     <Image
                       src={MyWorkIcon}
