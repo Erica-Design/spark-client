@@ -1,26 +1,123 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
+:root {
+    --foreground-rgb: 0, 0, 0;
+    --background-start-rgb: 214, 219, 220;
+    --background-end-rgb: 255, 255, 255;
 }
 
 @media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+    :root {
+        --foreground-rgb: 0, 0, 0;
+        --background-start-rgb: 214, 219, 220;
+        --background-end-rgb: 255, 255, 255;
+    }
+}
+
+body {
+    /*color: rgb(var(--foreground-rgb));*/
+    font-family: 'Pretendard', serif;
+    color: black;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    font-weight: 700;
+    src: url('../public/fonts/Pretendard-Bold.woff') format("woff");
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    font-weight: 600;
+    src: url('../public/fonts/Pretendard-SemiBold.woff') format("woff");
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    font-weight: 500;
+    src: url('../public/fonts/Pretendard-Medium.woff') format("woff");
+
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    font-weight: 400;
+    src: url('../public/fonts/Pretendard-Thin.woff') format("woff");
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    font-weight: 300;
+    src: url('../public/fonts/Pretendard-Light.woff') format("woff");
+}
+
+@font-face {
+    font-family: 'SUIT';
+    font-weight: 700;
+    src: url('../public/fonts/SUIT-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'SUIT';
+    font-weight: 600;
+    src: url('../public/fonts/SUIT-SemiBold.ttf');
+}
+
+@font-face {
+    font-family: 'SUIT';
+    font-weight: 500;
+    src: url('../public/fonts/SUIT-Medium.ttf');
+}
+
+@font-face {
+    font-family: 'SUIT';
+    font-weight: 400;
+    src: url('../public/fonts/SUIT-ExtraLight.ttf');
+}
+
+@font-face {
+    font-family: 'SUIT';
+    font-weight: 300;
+    src: url('../public/fonts/SUIT-Light.ttf');
+}
+
+@keyframes slideInFromTopRight {
+    from {
+        transform: translateX(100%) translateY(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0) translateY(0);
+        opacity: 1;
+    }
+}
+
+
+.mobileslide > .slick-list {
+    margin-right: -7px;
+    width: 432px;
+}
+
+.mobileslide > .slick-slide {
+    padding-right: 7px;
+}
+
+.desktopslide > .slick-list {
+    width: 95rem;
+    height: 324px;
+}
+
+.mypage::-webkit-scrollbar {
+    width: 0.5em;
+}
+
+.mypage::-webkit-scrollbar-thumb {
+    background-color: transparent;
+}
+
+.mypage::-webkit-scrollbar-track {
+    background-color: transparent;
 }
