@@ -3,7 +3,7 @@ service: frontend deploy
 provider:
   name: aws
   region: us-east-1
-  profile: spark.server
+  # profile: spark.server
   runtime: nodejs14.x
 
 plugins:
