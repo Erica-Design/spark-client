@@ -1,0 +1,29 @@
+name: Deploy master branch
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x]
+    steps:
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.x
+      - name: npm install, build, and test
+        run: |
+          npm install
+          npm run build
+
+      - name: serverless deploy
+        uses: serverless/github-action@master
+        with:
+          args: -c "serverless plugin install install -n serverless-finch && serverless client deploy"
+          entrypoint: /bin/sh
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}

@@ -1,0 +1,16 @@
+service: frontend deploy
+
+provider:
+  name: aws
+  region: us-east-1
+  profile: spark.server
+  runtime: nodejs14.x
+
+plugins:
+  - serverless-finch
+
+custom:
+  client:
+    bucketName: www.sparkhyu.com
+    distributionFolder: ./out
+# serverles client deploy
