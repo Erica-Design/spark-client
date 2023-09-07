@@ -24,7 +24,7 @@ export default function Login() {
     <BaseLayout
       isMobile={isMobile}
       isFooter={false}
-      isSideBar={false}
+      isSideBar={!isMobile}
       isHeader={isMobile}
     >
       {isMobile ? (

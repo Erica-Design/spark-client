@@ -38,13 +38,11 @@ const BaseLayout: React.FC<BaseLayoutProps> = ({
       )}
       {/*  Sidebar */}
       {isSideBar && (
-        <div className="pt-7 px-9">
+        <div className="mt-7 mx-9">
           <SideBar />
         </div>
       )}
-      <div className={`min-h-[100vh] ${isSideBar && "pl-[20%]"}`}>
-        {children}
-      </div>
+      <div className={`${isSideBar && "pl-[20%]"}`}>{children}</div>
       <div>{isFooter && <Footer />}</div>
     </Fragment>
   );

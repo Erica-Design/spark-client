@@ -16,7 +16,7 @@ export default function Login() {
       isMobile={isMobile}
       isHeader={isMobile}
       isFooter={false}
-      isSideBar={false}
+      isSideBar={true}
     >
       {isMobile ? <MobileLoginPage /> : <DesktopLoginPage />}
     </BaseLayout>
