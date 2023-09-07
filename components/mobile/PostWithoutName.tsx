@@ -16,9 +16,9 @@ export function MobilePostWithoutName(props: { post: Post }) {
             height={144}
           />
         </div>
-        <div>
-          <div className="flex items-center space-x-2 py-1 text-[14px] font-bold w-auto">
-            <span className="flex justify-center border-black space-x-2 items-center px-[1px] py-[1px]">
+        <div className="py-1">
+          <div className="flex items-center space-x-2 text-[14px] font-bold w-auto">
+            <span className="flex justify-center border-black space-x-2 items-center px-[1px]">
               {props.post.title}
             </span>
           </div>
@@ -27,7 +27,7 @@ export function MobilePostWithoutName(props: { post: Post }) {
               return (
                 <span
                   key={index}
-                  className="text-[14px] bg-[#F0F0F0] w-fit px-1 text-center truncate text-[#656565]"
+                  className="text-[10px] font-['SUIT'] bg-[#F0F0F0] w-fit px-2 py-1 font-medium text-center truncate text-[#656565]"
                 >
                   {category}
                 </span>

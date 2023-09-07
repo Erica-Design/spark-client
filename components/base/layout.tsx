@@ -4,12 +4,16 @@ import MobileFooter from "@components/mobile/footer";
 import Header from "@components/desktop/header";
 import Footer from "@components/desktop/footer";
 import SideBar from "@components/desktop/sidebar";
+import MobileClose from "@icons/mobileclose";
+import MobileMenu from "@components/mobile/menu";
 
 interface BaseLayoutProps {
   isMobile: boolean;
   isSideBar?: boolean;
   isHeader?: boolean;
+  isMenu?: boolean;
   isFooter?: boolean;
+  isCloseButton?: boolean;
   children: React.ReactNode;
 }
 
@@ -17,13 +21,18 @@ const BaseLayout: React.FC<BaseLayoutProps> = ({
   isMobile,
   isSideBar = true,
   isHeader = true,
+  isMenu = true,
   isFooter = true,
+  isCloseButton = true,
   children,
 }) => {
   if (isMobile) {
     return (
       <Fragment>
-        {isHeader && <MobileHeader />}
+        {isHeader && <MobileHeader>
+          {isMenu && <MobileMenu />}
+          {isCloseButton && <MobileClose />}
+        </MobileHeader>}
         {children}
         {isFooter && <MobileFooter />}
       </Fragment>

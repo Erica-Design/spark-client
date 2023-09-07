@@ -73,7 +73,7 @@ const Home: NextPage = () => {
     return <div>Loading...</div>;
 
   return (
-    <BaseLayout isMobile={isMobile}>
+    <BaseLayout isMobile={isMobile} isCloseButton={false}>
       {isMobile ? (
         <MobileMainPage
           posts={posts}

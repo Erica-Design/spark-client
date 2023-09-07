@@ -28,7 +28,7 @@ const MobileSlider: FC<MobileSliderProps> = ({ sparkPosts }) => {
 
   return (
     <div className="m-auto">
-      <Slider {...slickSettings} ref={sliderRef} className="overflow-hidden">
+      <Slider {...slickSettings} ref={sliderRef} className="overflow-hidden mobileslide">
         {sparkPosts.map((post: Post, index: number) => {
           return (
             <Link key={index} href={`/post/${post.id}`}>
@@ -40,7 +40,7 @@ const MobileSlider: FC<MobileSliderProps> = ({ sparkPosts }) => {
                   src={post.thumbnail ?? "https://via.placeholder.com/210x144"}
                   alt="작업물 이미지"
                 />
-                <span className="absolute bottom-0 p-2.5 text-white font-bold text-lg font-['Pretendard']">
+                <span className="absolute bottom-0 p-2.5 text-white font-bold text-xs font-['Pretendard']">
                   {post.title}
                 </span>
               </div>
@@ -50,11 +50,11 @@ const MobileSlider: FC<MobileSliderProps> = ({ sparkPosts }) => {
       </Slider>
       <div className="flex">
         <div
-          className="absolute w-7 h-44 top-[6.3rem] right-0 bg-white blur-[6px] flex-shrink-0 cursor-pointer"
+          className="absolute w-10 h-44 top-[8rem] right-0 bg-white blur-[9px] flex-shrink-0 cursor-pointer"
           onClick={handleNextSlide}
         ></div>
         <button
-          className="absolute top-[11.2rem] right-2 items-center justify-center z-10"
+          className="absolute top-[13rem] right-[10px] items-center justify-center z-10"
           onClick={handleNextSlide}
         >
           <svg

@@ -4,11 +4,13 @@ import MobileMypageButton from "@icons/mobilemypage";
 import MobileLoginButton from "@icons/mobileloginbutton";
 import useUser from "@hooks/useUser";
 
-const MobileHeader = () => {
+
+
+const MobileHeader = (props) => {
   const user = useUser();
 
   return (
-    <div className="flex flex-row m-2">
+    <div className="flex flex-row px-3.5 pt-7">
       <MobileLogo />
       <div>
         <h1 className="font-['SUIT'] font-normal text-[0.56rem] mt-1">
@@ -18,11 +20,7 @@ const MobileHeader = () => {
           <span className="font-normal mr-1">ERICA DESIGN</span> ARCHIVING
         </h1>
       </div>
-      {user ? (
-        <MobileMypageButton buttonImg={user.departmentCode} userId={user.id} />
-      ) : (
-        <MobileLoginButton />
-      )}
+      {props.children}
     </div>
   );
 };

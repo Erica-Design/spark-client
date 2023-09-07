@@ -29,19 +29,19 @@ const MobileLoginPage = () => {
   const onSubmit = handleSubmit(loginSubmit);
   return (
     <form onSubmit={onSubmit}>
-      <div className="p-5 flex flex-col h-[35rem]">
+      <div className="px-[26px] py-[37px] flex flex-col h-[35rem]">
         <h1 className="font-['SUIT'] text-[1.75rem] font-bold ">로그인</h1>
         <div>
           <input
             required
-            className="w-full h-12 outline-none border border-gray-300 focus:border-black valid:border-black invalid:border-gray-300 items-center gap-2 text-[0.88rem] font-['Pretendard'] font-medium pl-3 mt-2"
+            className="w-full h-[50px] outline-none border border-gray-300 focus:border-black valid:border-black invalid:border-gray-300 items-center gap-2 text-[0.88rem] font-['Pretendard'] font-medium pl-4 py-4 mt-[14px]"
             type="text"
             placeholder="이메일"
             {...register<"studentNumber">("studentNumber")}
           />
           <input
             required
-            className="w-full h-12 outline-none border border-gray-300 focus:border-black valid:border-black invalid:border-gray-300 items-center gap-2 text-[0.88rem] font-['Pretendard'] font-medium pl-3 mt-2"
+            className="w-full h-[50px] outline-none border border-gray-300 focus:border-black valid:border-black invalid:border-gray-300 items-center gap-2 text-[0.88rem] font-['Pretendard'] font-medium pl-4 py-4 mt-2"
             type="password"
             placeholder="비밀번호"
             {...register<"password">("password")}
@@ -70,13 +70,12 @@ const MobileLoginPage = () => {
             </div>
           </div>
         </div>
-        <div className="mt-5">
+        <div className="mt-[22px]">
           <button
-            className={`w-full h-12  text-white text-[0.88rem] font-['Pretendard'] font-bold ${
-              !studentNumber || !password
-                ? "bg-[#d1d1d1] transition-all duration-500"
-                : "bg-black transition-all duration-500"
-            }`}
+            className={`w-full h-[50px]  text-white text-[0.88rem] font-['Pretendard'] font-bold ${!studentNumber || !password
+              ? "bg-[#d1d1d1] transition-all duration-500"
+              : "bg-black transition-all duration-500"
+              }`}
             disabled={!studentNumber || !password}
           >
             로그인하기
