@@ -5,11 +5,14 @@ import Link from "next/link";
 
 interface MobileUserPageProps {
   userData: IUserDetailData | null;
+  id: number | null;
 }
 
-export default function MobileUserPage({ userData }: MobileUserPageProps) {
+export default function MobileUserPage({ userData, id }: MobileUserPageProps) {
   const router = useRouter();
+
   if (!userData) return <div></div>;
+
   return (
     <div>
       <div className="pt-[53px]">
@@ -28,7 +31,7 @@ export default function MobileUserPage({ userData }: MobileUserPageProps) {
             </h1>
             {userData.posts?.length >= 2 && (
               <Link
-                href={`/`}
+                href={`/users/${id}/upload`}
                 className="ml-auto flex font-['SUIT'] text-[11px] self-end font-normal mr-[18px]"
               >
                 더보기
@@ -68,8 +71,8 @@ export default function MobileUserPage({ userData }: MobileUserPageProps) {
               북마크한 작업물
             </h1>
             {userData.scrapPosts?.length >= 2 && (
-              <a
-                href="/bookmark"
+              <Link
+                href={`/users/${id}/bookmark`}
                 className="ml-auto flex font-['SUIT'] text-[11px] font-normal self-end mr-[18px]"
               >
                 더보기
@@ -88,7 +91,7 @@ export default function MobileUserPage({ userData }: MobileUserPageProps) {
                     strokeLinejoin="round"
                   />
                 </svg>
-              </a>
+              </Link>
             )}
           </div>
           {userData.scrapPosts?.length === 0 ? (

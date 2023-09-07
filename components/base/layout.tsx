@@ -29,10 +29,12 @@ const BaseLayout: React.FC<BaseLayoutProps> = ({
   if (isMobile) {
     return (
       <Fragment>
-        {isHeader && <MobileHeader>
-          {isMenu && <MobileMenu />}
-          {isCloseButton && <MobileClose />}
-        </MobileHeader>}
+        {isHeader && (
+          <MobileHeader>
+            {isMenu && <MobileMenu />}
+            {isCloseButton && <MobileClose />}
+          </MobileHeader>
+        )}
         {children}
         {isFooter && <MobileFooter />}
       </Fragment>

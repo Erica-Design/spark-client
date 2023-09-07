@@ -1,14 +1,11 @@
 import MobileLogo from "@icons/mobilelogo";
-import React from "react";
-import MobileMypageButton from "@icons/mobilemypage";
-import MobileLoginButton from "@icons/mobileloginbutton";
-import useUser from "@hooks/useUser";
+import React, { FC } from "react";
 
+interface MobileHeaderProps {
+  children?: React.ReactNode;
+}
 
-
-const MobileHeader = (props) => {
-  const user = useUser();
-
+const MobileHeader: FC<MobileHeaderProps> = ({ children }) => {
   return (
     <div className="flex flex-row px-3.5 pt-7">
       <MobileLogo />
@@ -20,7 +17,7 @@ const MobileHeader = (props) => {
           <span className="font-normal mr-1">ERICA DESIGN</span> ARCHIVING
         </h1>
       </div>
-      {props.children}
+      {children}
     </div>
   );
 };

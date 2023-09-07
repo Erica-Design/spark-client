@@ -18,12 +18,14 @@ export default function UserPage() {
     }
   }, [router.isReady, router.query]);
 
+  // TODO: 포스트 페이지 북마크, 온보딩 페이지 useEffect 시간 처리, SparkStory 페이지 처리
+
   return (
     <BaseLayout isMobile={isMobile} isMenu={false}>
       {isMobile ? (
-        <MobileUserPage userData={userData} />
+        <MobileUserPage userData={userData} id={Number(router.query.id)} />
       ) : (
-        <DesktopUserPage userData={userData} />
+        <DesktopUserPage userData={userData} id={Number(router.query.id)} />
       )}
     </BaseLayout>
   );
