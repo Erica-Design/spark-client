@@ -7,7 +7,7 @@ import MobileUserPage from "@components/mobile/pages/users";
 import DesktopUserPage from "@components/desktop/pages/users";
 import { IUserDetailData } from "@hooks/useUser";
 
-export default function UserPage(props) {
+export default function UserPage() {
   const router = useRouter();
   const isMobile = useMobile();
   const [userData, setUserData] = useState<IUserDetailData | null>(null);
