@@ -69,7 +69,7 @@ const MobileMainPage: React.FC<MainPageProps> = ({
         <div className="max-w-5xl m-auto space-y-7 mt-3">
           {posts?.map((post: Post, index: number) => {
             return (
-              <Link key={index} href={`/post/${post.id}`}>
+              <Link key={index} href={`/posts/${post.id}`}>
                 <div key={index} className={`flex w-full`}>
                   <div className="w-full">
                     <div className="w-full h-[227px] border-[1px] border-black ">
