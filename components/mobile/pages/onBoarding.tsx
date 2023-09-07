@@ -1,34 +1,34 @@
 import Image from "next/image";
-import OnBoardingImg from "@icons/onbording.svg";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function MobileOnBoarding() {
   const [countdown, setCountdown] = useState(5);
   const [displayText, setDisplayText] = useState("");
 
-  // useEffect(() => {
-  //     const interval = setInterval(() => {
-  //         if (countdown > 1) {
-  //             setCountdown(countdown - 1);
-  //         } else if (countdown === 1) {
-  //             setCountdown(0);
-  //             setDisplayText('GO');
-  //         }
-  //     }, 1000);
-  //
-  //     return () => {
-  //         clearInterval(interval);
-  //     };
-  // }, [countdown]);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (countdown > 1) {
+        setCountdown(countdown - 1);
+      } else if (countdown === 1) {
+        setCountdown(0);
+        setDisplayText("GO");
+      }
+    }, 1000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [countdown]);
 
   return (
     <div className="bg-black">
       <div className="flex flex-col items-center justify-center">
         <Image
           className="w-full h-screen"
-          src={OnBoardingImg}
+          src="/onBoarding/mobile.gif"
           alt="온보딩이미지"
+          fill
         />
         <div className="absolute bottom-10">
           <Link

@@ -8,6 +8,7 @@ import createScrap from "@services/posting/post/createScrap";
 import Image from "next/image";
 import { calculateSize } from "@utils/imageSize";
 import { useRouter } from "next/router";
+import { Post } from "@utils/types";
 
 export default function MobilePostPage() {
   const user = useUser();
@@ -15,8 +16,8 @@ export default function MobilePostPage() {
   const [showModal, setShowModal] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [isBookmarked, setIsBookmarked] = useState(false); // New state for bookmark status
-  const [data, setData] = useState(null);
-  const [id, setId] = useState<number>(null);
+  const [data, setData] = useState<Post | null>(null);
+  const [id, setId] = useState<number>(0);
 
   useEffect(() => {
     if (router.query && router.query.id) {
@@ -64,7 +65,6 @@ export default function MobilePostPage() {
   }, [showModal]);
 
   const toggleBookmark = () => {
-    console.log(user);
     if (user) {
       if (isBookmarked) {
         deleteScrap(+id).then(() => {
