@@ -20,7 +20,7 @@ export default function MobileUserPage({ userData }: MobileUserPageProps) {
             <p className="font-['Pretendard']">{userData.username}</p>
           </div>
         </div>
-        <div>
+        <div className=" mb-32">
           <div className="flex mt-8">
             <h1 className="font-['Pretendard'] text-[1.13rem] ml-[18px] font-bold underline">
               최근 업로드한 작업물

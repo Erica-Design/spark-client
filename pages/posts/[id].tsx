@@ -88,17 +88,16 @@ export default function MobilePostPage() {
   return (
     <div>
       <div>
-        <div className="px-5 py-7">
+        <div className="px-5 py-6">
           <div className="flex">
-            <h1 className="text-[1.13rem] font-['Pretendard'] font-bold">
+            <h1 className="text-[1.13rem] font-['Pretendard'] font-bold tracking-[140%]">
               {data?.title}
             </h1>
             <div className="flex items-center space-x-2 cursor-pointer ml-auto">
               <div className="" onClick={toggleBookmark}>
                 <svg
-                  className={`${
-                    isBookmarked ? "fill-black" : "fill-white"
-                  } w-[26px] h-[26px]`}
+                  className={`${isBookmarked ? "fill-black" : "fill-white"
+                    } w-[26px] h-[26px]`}
                   xmlns="http://www.w3.org/2000/svg"
                   width="20"
                   height="20"
@@ -118,18 +117,18 @@ export default function MobilePostPage() {
           </div>
           <div>
             <div className="flex items-center space-x-1 py-1 text-[16px] w-auto">
-              <p className="flex justify-center border border-black items-center w-6 h-6 text-xs font-bold tracking-wider">
+              <p className="flex justify-center border border-black items-center w-[18px] h-[18px] gap-[6px] text-[10px] font-bold tracking-wider leading-[140%]">
                 {data?.author.departmentCode}
               </p>
-              <Link href={`/users/${data?.author.id}`}>
+              <Link href={`/users/${data?.author.id}`} className="font-medium font-['Pretendard'] text-[13px]">
                 {data?.author?.username}({data?.author?.shortStudentNumber})
               </Link>
             </div>
-            <div className="max-w-md mx-auto mt-2 flex">
+            <div className="max-w-md mx-auto mt-[10px] flex">
               {data?.categories.map((category, index) => (
                 <p
                   key={index}
-                  className="text-[10px] bg-[#F0F0F0] mr-2 w-fit text-center truncate text-[#656565] px-1 py-0.5 font-['SUIT']"
+                  className="text-[10px] bg-[#F0F0F0] font-medium mr-1 w-fit text-center truncate text-[#656565] px-1 py-0.5 font-['SUIT']"
                 >
                   {category}
                 </p>
@@ -160,13 +159,13 @@ export default function MobilePostPage() {
         {/* ... */}
       </div>
       <div className="w-full px-5">
-        <div className="flex flex-wrap border border-black justify-center space-y-10 py-5">
+        <div className="flex flex-wrap border border-black justify-center space-y-10 py-[34px]">
           {data?.images.map((post, index) => {
             const { width, height } = calculateSize(post.url);
             return (
               <div
                 key={index}
-                className="relative w-full mx-2"
+                className="relative w-full px-2"
                 style={{
                   aspectRatio: `${width}/${height}`,
                 }}
@@ -207,7 +206,7 @@ export default function MobilePostPage() {
               />
             </svg>
             <span className="ml-1 font-['SUIT'] text-[0.75rem] self-center">
-              {}
+              { }
             </span>
           </div>
           <div className="flex ml-3">

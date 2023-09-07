@@ -43,7 +43,7 @@ export default function MobileMypageButton(props: any) {
           className={`bg-white border border-[#757575] shadow-xl absolute z-20 right-0 top-11 mr-3 transition-transform duration-300 ${open ? "translate-y-0" : "-translate-y-10 opacity-0"
             }`}
         >
-          <div className="text-center justify-center">
+          <div className="justify-center">
             <div className="">
               <Link
                 href={`/users/${props.userId}`}
@@ -64,7 +64,7 @@ export default function MobileMypageButton(props: any) {
                     />
                   </svg>
                 </div>
-                <p className="font-['Pretendard'] font-medium text-[0.81rem]">
+                <p className="font-['Pretendard'] font-medium text-[0.81rem] w-20">
                   내 작업물
                 </p>
               </Link>
