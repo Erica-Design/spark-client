@@ -12,8 +12,8 @@ jobs:
       - name: npm install and build
         working-directory: ${{ github.workspace }}
         run: |
-          npm install
-          npm run deploy
+          yarn install
+          yarn run deploy
       - name: Run ls on workplace
         run: |
           ls -alR ${{ github.workspace }}
