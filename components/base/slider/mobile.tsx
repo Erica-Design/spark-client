@@ -35,7 +35,7 @@ const MobileSlider: FC<MobileSliderProps> = ({ sparkPosts }) => {
       >
         {sparkPosts?.map((post: Post, index: number) => {
           return (
-            <Link key={index} href={`/post/${post.id}`}>
+            <Link key={index} href={`/posts/${post.id}`}>
               <div className="relative mt-3 mr-3 cursor-pointer" key={index}>
                 <Image
                   className="w-[209px] h-36"
