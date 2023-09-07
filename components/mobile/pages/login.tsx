@@ -87,12 +87,12 @@ const MobileLoginPage = () => {
             <span className="mx-auto text-[#757575] font-['Pretendard'] text-[0.75rem] font-medium">
               아직 스파크에 가입 안하셨나요?
             </span>
-            <a
+            <Link
               href="/register"
               className={`w-full h-12 flex items-center justify-center bg-white text-black border border-black text-[0.75rem] font-['Pretendard'] font-bold mt-2`}
             >
               회원가입 하기
-            </a>
+            </Link>
           </div>
         </div>
       </div>

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import login from "@services/users/login/post/login";
+import Link from "next/link";
 
 interface LoginFom {
   studentNumber: string;
@@ -84,12 +85,12 @@ const DesktopLoginPage = () => {
             <span className="text-[#656565] text-[1rem] font-medium font-['Pretendard']">
               아직 스파크에 가입 안하셨나요?
             </span>
-            <a
+            <Link
               href="/register"
               className="text-black text-[1rem] font-bold underline ml-auto font-['Pretendard']"
             >
               회원가입하기
-            </a>
+            </Link>
           </div>
         </div>
       </div>
