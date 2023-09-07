@@ -3,6 +3,8 @@
 import Link from "next/link";
 import React from "react";
 import { Post } from "@utils/types";
+import Slider from "react-slick";
+import MobileSlider from "@components/base/slider/mobile";
 
 interface MainPageProps {
   categories?: string[];
@@ -20,13 +22,15 @@ const MobileMainPage: React.FC<MainPageProps> = ({
   handleChoices,
 }) => {
   return (
-    <div className="p-4">
+    <div className="p-[18px] pt-10">
       <div>
         <h1 className="font-Pretendard text-[1.25rem] font-bold underline">
           SPARK 픽 디자인
         </h1>
       </div>
-      {/*<MobileSlider sparkPosts={sparkPosts} />*/}
+      <div className="m-auto">
+        <MobileSlider sparkPosts={sparkPosts} />
+      </div>
       <div className="">
         <h1 className="font-Pretendard text-[1.25rem] font-bold underline mt-6">
           카테고리
@@ -39,13 +43,12 @@ const MobileMainPage: React.FC<MainPageProps> = ({
           {categories?.map((category: string, index: number) => {
             return (
               <div key={index} onClick={() => handleChoices(category)}>
-                <div className="mr-2 my-1">
+                <div className="mr-2 my-[16px]">
                   <span
-                    className={`${
-                      choices.includes(category)
-                        ? "bg-black text-white"
-                        : "bg-[#f0f0f0]"
-                    } px-1 py-1`}
+                    className={`${choices.includes(category)
+                      ? "bg-black text-white"
+                      : "bg-[#f0f0f0]"
+                      } px-1 py-1`}
                   >
                     {category}
                   </span>
@@ -56,7 +59,7 @@ const MobileMainPage: React.FC<MainPageProps> = ({
         </div>
       </div>
       <div className="">
-        <h1 className="text-[1.25rem] font-bold underline mt-6">
+        <h1 className="text-[1.25rem] font-bold underline mt-3.5">
           업로드된 아카이빙 작업물
         </h1>
       </div>
@@ -66,7 +69,7 @@ const MobileMainPage: React.FC<MainPageProps> = ({
           <p className="underline">작업물 업로드 하러가기</p>
         </div>
       ) : (
-        <div className="max-w-5xl m-auto space-y-7 mt-3">
+        <div className="max-w-5xl m-auto space-y-7 mt-4">
           {posts?.map((post: Post, index: number) => {
             return (
               <Link key={index} href={`/posts/${post.id}`}>
@@ -80,10 +83,10 @@ const MobileMainPage: React.FC<MainPageProps> = ({
                       />
                     </div>
                     <div>
-                      <div className="flex items-center space-x-2 py-1 text-[16px] font-bold w-auto">
+                      <div className="flex items-center space-x-2 pt-1.5 text-[16px] font-bold w-auto">
                         <p>{post.title}</p>
                       </div>
-                      <div className="space-x-1 flex">
+                      <div className="space-x-1 flex mt-1 tracking-[0.4px]">
                         {post.categories.map(
                           (category: string, index: number) => {
                             return (

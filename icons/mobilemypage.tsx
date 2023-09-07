@@ -40,9 +40,8 @@ export default function MobileMypageButton(props: any) {
       {open && (
         <div
           ref={modalRef}
-          className={`bg-white border border-[#757575] shadow-xl w-[173px] absolute z-20 right-0 top-11 mr-3 transition-transform duration-300 ${
-            open ? "translate-y-0" : "-translate-y-10 opacity-0"
-          }`}
+          className={`bg-white border border-[#757575] shadow-xl absolute z-20 right-0 top-11 mr-3 transition-transform duration-300 ${open ? "translate-y-0" : "-translate-y-10 opacity-0"
+            }`}
         >
           <div className="text-center justify-center">
             <div className="">

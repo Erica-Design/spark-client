@@ -19,7 +19,7 @@ export default function UserPage() {
   }, [router.isReady, router.query]);
 
   return (
-    <BaseLayout isMobile={isMobile}>
+    <BaseLayout isMobile={isMobile} isMenu={false}>
       {isMobile ? (
         <MobileUserPage userData={userData} />
       ) : (

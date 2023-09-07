@@ -96,16 +96,16 @@ body {
 }
 
 
-.mobileslide > .slick-list {
-    margin-right: -7px;
-    width: 432px;
+.mobileslide>.slick-list {
+    margin-right: -8px;
+    width: 442px;
 }
 
-.mobileslide > .slick-slide {
-    padding-right: 7px;
+.mobileslide>.slick-slide {
+    padding-right: 8px;
 }
 
-.desktopslide > .slick-list {
+.desktopslide>.slick-list {
     width: 95rem;
     height: 324px;
 }
