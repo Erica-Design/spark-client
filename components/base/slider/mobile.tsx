@@ -14,7 +14,7 @@ const slickSettings = {
 };
 
 interface MobileSliderProps {
-  sparkPosts: Post[];
+  sparkPosts?: Post[];
 }
 
 const MobileSlider: FC<MobileSliderProps> = ({ sparkPosts }) => {
@@ -28,8 +28,12 @@ const MobileSlider: FC<MobileSliderProps> = ({ sparkPosts }) => {
 
   return (
     <div className="m-auto">
-      <Slider {...slickSettings} ref={sliderRef} className="overflow-hidden mobileslide">
-        {sparkPosts.map((post: Post, index: number) => {
+      <Slider
+        {...slickSettings}
+        ref={sliderRef}
+        className="overflow-hidden mobileslide"
+      >
+        {sparkPosts?.map((post: Post, index: number) => {
           return (
             <Link key={index} href={`/post/${post.id}`}>
               <div className="relative mt-3 mr-3 cursor-pointer" key={index}>
