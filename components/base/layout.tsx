@@ -31,10 +31,20 @@ const BaseLayout: React.FC<BaseLayoutProps> = ({
   }
   return (
     <Fragment>
-      <div className="float-right pt-7 px-9">{isHeader && <Header />}</div>
+      {isHeader && (
+        <div className="float-right pt-7 px-9">
+          <Header />
+        </div>
+      )}
       {/*  Sidebar */}
-      <div className="pt-7 px-9">{isSideBar && <SideBar />}</div>
-      <div className="min-h-[100vh] pl-[20%]">{children}</div>
+      {isSideBar && (
+        <div className="pt-7 px-9">
+          <SideBar />
+        </div>
+      )}
+      <div className={`min-h-[100vh] ${isSideBar && "pl-[20%]"}`}>
+        {children}
+      </div>
       <div>{isFooter && <Footer />}</div>
     </Fragment>
   );
