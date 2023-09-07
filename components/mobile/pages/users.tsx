@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import { IUserDetailData } from "@hooks/useUser";
 import { MobilePostWithoutName } from "@components/mobile/PostWithoutName";
+import Link from "next/link";
 
 interface MobileUserPageProps {
   userData: IUserDetailData | null;
@@ -26,8 +27,8 @@ export default function MobileUserPage({ userData }: MobileUserPageProps) {
               최근 업로드한 작업물
             </h1>
             {userData.posts?.length >= 2 && (
-              <a
-                href="/recent"
+              <Link
+                href={`/`}
                 className="ml-auto flex font-['SUIT'] text-[11px] self-end font-normal mr-[18px]"
               >
                 더보기
@@ -46,7 +47,7 @@ export default function MobileUserPage({ userData }: MobileUserPageProps) {
                     strokeLinejoin="round"
                   />
                 </svg>
-              </a>
+              </Link>
             )}
           </div>
           {userData.posts?.length === 0 ? (
