@@ -30,7 +30,7 @@ const DesktopLoginPage = () => {
   return (
     <form
       onSubmit={onSubmit}
-      className="w-full h-screen flex items-center justify-center bg-white"
+      className="absolute top-0 w-4/5 h-screen flex items-center justify-center bg-white"
     >
       <div className="w-[25rem] h-[30rem]">
         <h1 className="text-[2rem] font-bold text-center font-['Pretendard']">
