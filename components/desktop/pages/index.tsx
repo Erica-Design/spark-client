@@ -53,7 +53,7 @@ const DesktopMainPage: React.FC<DesktopPageProps> = ({
   handleChoices,
 }) => {
   const { isOpen, openModal, closeModal } = useModal();
-  const [selectedWork, setSelectedWork] = useState<any>(null);
+  const [selectedWork, setSelectedWork] = useState<Post | null>(null);
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -127,7 +127,7 @@ const DesktopMainPage: React.FC<DesktopPageProps> = ({
             </div>
           ) : (
             <div className="flex flex-rows-4 flex-flow-col flex-wrap max-w-5xl gap-x-7 m-auto gap-y-8 ">
-              {posts?.map((post: any, index: number) => {
+              {posts?.map((post: Post, index: number) => {
                 return (
                   <div key={index} className="">
                     <div
@@ -182,7 +182,7 @@ const DesktopMainPage: React.FC<DesktopPageProps> = ({
         <Modal
           isOpen={isOpen}
           closeModal={closeModal}
-          id={selectedWork?.id ?? "2"}
+          id={selectedWork?.id ?? "1"}
         />
       </div>
     </Fragment>
