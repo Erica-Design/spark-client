@@ -2,7 +2,9 @@ import axios from "axios";
 
 const getCategory = async () => {
   try {
-    const response = await axios.get<string[]>(`https://api.sparkhyu.com/categories`);
+    const response = await axios.get<string[]>(
+      `https://xq13ns6jwd.execute-api.us-east-1.amazonaws.com/prod/categories`,
+    );
     return response.data;
   } catch (e) {
     console.log(e);

@@ -100,7 +100,6 @@ export default function Page() {
     event: React.ChangeEvent<HTMLInputElement>,
   ) => {
     if (event.target.files) {
-      setImageLink([]);
       const files = event.target.files;
       const REGION = process.env.NEXT_PUBLIC_REGION;
       const ACCESS_KEY_ID = process.env.NEXT_PUBLIC_ACCESS_KEY_ID;
@@ -119,7 +118,7 @@ export default function Page() {
           params: {
             ACL: "public-read",
             Bucket: "spark-media",
-            Key: "thumbnail/" + file.name,
+            Key: "images/" + file.name,
             Body: file,
             ContentType: file.type,
           },
@@ -137,7 +136,7 @@ export default function Page() {
   };
 
   const moveItem = (from: any, to: any) => {
-    setImageFiles((prevFiles) => {
+    setImageLink((prevFiles) => {
       const newFiles = Array.from(prevFiles);
       newFiles.splice(to, 0, newFiles.splice(from, 1)[0]);
       return newFiles;
@@ -145,6 +144,14 @@ export default function Page() {
   };
   const [videoFiles, setVideoFiles] = useState([]);
   const [showVideoInput, setShowVideoInput] = useState(false);
+
+  const handleImageDelete = (indexToDelete) => {
+    setImageLink((prevImageLink) => {
+      const updatedImageLink = [...prevImageLink];
+      updatedImageLink.splice(indexToDelete, 1);
+      return updatedImageLink;
+    });
+  };
 
   const imageUpload = (
     <>
@@ -156,25 +163,26 @@ export default function Page() {
         id="imageUploadInput"
         multiple
       />
-      <DndProvider backend={HTML5Backend}>
-        {imageFiles.map((file, index) => (
-          <DraggableImage
-            key={index}
-            file={file}
-            index={index}
-            moveItem={moveItem}
-          />
-        ))}
-        {videoFiles.map((link, index) => (
-          <div
-            className=" w-[85em] border-[1px] border-black px-5 py-2 text-[12px] flex justify-between font-['Pretendard']"
-            key={`vid-${index}`}
-          >
-            <p>{link}</p>
-            <p>Video Link</p>
-          </div>
-        ))}
-      </DndProvider>
+      <div className="flex-row justify-center ">
+        <DndProvider backend={HTML5Backend}>
+          {imageLink.map((imageLink, index) => (
+            <>
+              <div
+                onClick={() => handleImageDelete(index)}
+                className="flex justify-center border border-2 cursor-pointer"
+              >
+                <p>이미지 삭제</p>
+              </div>
+              <DraggableImage
+                key={index}
+                imageLink={imageLink}
+                index={index}
+                moveItem={moveItem}
+              />
+            </>
+          ))}
+        </DndProvider>
+      </div>
     </>
   );
 
@@ -191,7 +199,7 @@ export default function Page() {
       .then((res) => {
         console.log(res);
         if (res?.status === 201) {
-          console.log("정상적으로 업로드가 완료되었습니다!");
+          alert("정상적으로 업로드가 완료되었습니다!");
           setValue<keyof UploadForm>("title", "");
           setValue<keyof UploadForm>("type", "");
           setValue<keyof UploadForm>("categories", "");
@@ -304,17 +312,21 @@ export default function Page() {
           ))}
         </div>
       </div>
-      <div className="w-[70%] h-96 mt-3 border-2 border-black mx-auto max-h-96 overflow-y-auto pb-10">
+      <div className="w-[70%] min-h-96 h-auto mt-3 border-2 border-black mx-auto overflow-y-auto pb-10">
         <div className="flex">
           <span className="m-2 font-['Pretendard'] text-[1rem] font-bold self-center mx-3">
             콘텐츠 업로드
           </span>
         </div>
         <div>
-          <div className={` m-auto flex justify-center`}>
+          <div
+            className={`${
+              imageLink.length === 0 ? "flex" : "flex-row"
+            } m-auto  justify-center`}
+          >
             <div
               className={`${
-                imageLink.length === 0 ? "block" : "hidden"
+                imageLink.length === 0 ? "" : "hidden"
               } flex space-x-10 mt-24`}
             >
               <div
@@ -350,22 +362,6 @@ export default function Page() {
                   동영상 링크
                 </p>
               </div>
-            </div>
-            <div className="flex-row space-y-7">
-              {imageLink?.map((res, index) => {
-                return (
-                  <div key={index}>
-                    <div>
-                      <Image
-                        src={res}
-                        alt="업로드 이미지"
-                        width={1000}
-                        height={500}
-                      />
-                    </div>
-                  </div>
-                );
-              })}
             </div>
             {imageUpload}
           </div>
