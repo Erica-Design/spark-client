@@ -24,7 +24,7 @@ export default function SideBar() {
       <div className="flex justify-between w-48 border-b-[2px] border-black my-0.5 py-1 ">
         <div>
           <Link
-            href="/sparkstory"
+            href="/sparkStory"
             className="font-['Pretendard'] font-bold text-[1rem]"
           >
             SPARK 스토리

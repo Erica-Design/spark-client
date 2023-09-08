@@ -22,6 +22,7 @@ export default function MobilePostPage() {
   useEffect(() => {
     if (router.query && router.query.id) {
       getPostDetail(+router.query.id).then((response) => {
+        console.log(response);
         setData(response);
         setIsBookmarked(response.scraped);
         setId(Number(router.query.id));
@@ -96,8 +97,9 @@ export default function MobilePostPage() {
             <div className="flex items-center space-x-2 cursor-pointer ml-auto">
               <div className="" onClick={toggleBookmark}>
                 <svg
-                  className={`${isBookmarked ? "fill-black" : "fill-white"
-                    } w-[26px] h-[26px]`}
+                  className={`${
+                    isBookmarked ? "fill-black" : "fill-white"
+                  } w-[26px] h-[26px]`}
                   xmlns="http://www.w3.org/2000/svg"
                   width="20"
                   height="20"
@@ -120,7 +122,10 @@ export default function MobilePostPage() {
               <p className="flex justify-center border border-black items-center w-[18px] h-[18px] gap-[6px] text-[10px] font-bold tracking-wider leading-[140%]">
                 {data?.author.departmentCode}
               </p>
-              <Link href={`/users/${data?.author.id}`} className="font-medium font-['Pretendard'] text-[13px]">
+              <Link
+                href={`/users/${data?.author.id}`}
+                className="font-medium font-['Pretendard'] text-[13px]"
+              >
                 {data?.author?.username}({data?.author?.shortStudentNumber})
               </Link>
             </div>
@@ -206,7 +211,7 @@ export default function MobilePostPage() {
               />
             </svg>
             <span className="ml-1 font-['SUIT'] text-[0.75rem] self-center">
-              { }
+              {}
             </span>
           </div>
           <div className="flex ml-3">

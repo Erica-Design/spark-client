@@ -67,7 +67,7 @@ const Modal = ({ isOpen, closeModal, id }: PostPageProps) => {
         className="fixed inset-0 bg-black opacity-70 blur-[2px]"
         onClick={closeModal}
       ></div>
-      <div className="w-[68%] bg-white z-10">
+      <div className="w-7/10 bg-white z-10">
         <div>
           <div className="p-4 pl-6">
             <div className="flex">
@@ -106,7 +106,7 @@ const Modal = ({ isOpen, closeModal, id }: PostPageProps) => {
                             viewBox="0 0 15 15"
                             fill="none"
                           >
-                            <g clip-path="url(#clip0_668_2715)">
+                            <g clipPath="url(#clip0_668_2715)">
                               <path
                                 d="M6.875 2.5H2.5C2.16848 2.5 1.85054 2.6317 1.61612 2.86612C1.3817 3.10054 1.25 3.41848 1.25 3.75V12.5C1.25 12.8315 1.3817 13.1495 1.61612 13.3839C1.85054 13.6183 2.16848 13.75 2.5 13.75H11.25C11.5815 13.75 11.8995 13.6183 12.1339 13.3839C12.3683 13.1495 12.5 12.8315 12.5 12.5V8.125"
                                 stroke="black"

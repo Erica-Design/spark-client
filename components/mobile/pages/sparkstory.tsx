@@ -87,11 +87,11 @@ export default function MobileSparkStory() {
             커뮤니케이션디자인학과 21 이시연 <br />
             <span className="font-semibold">[영상 디자인]</span> 영상디자인학과
             21 이선민 <br />
-            <span className="font-semibold">[백엔드 개발자]</span> 컴퓨터학부 18
-            민준수 / 컴퓨터학부 18 김민재
+            <span className="font-semibold">[백엔드 개발자]</span>
+            컴퓨터학부 18 민준수 | 컴퓨터학부 18 김민재
             <br />
             <span className="font-semibold">[프론트엔드 개발자]</span>{" "}
-            컴퓨터학부 18 박재현 / 컴퓨터학부 21 김준휘
+            컴퓨터학부 18 박재현 | 컴퓨터학부 21 김준휘
             <br />
           </span>
         </div>
