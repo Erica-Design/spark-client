@@ -20,6 +20,11 @@ jobs:
         run: |
           mkdir -p onBoarding
 
+      - name: ls output
+        working-directory: ./out
+        run: |
+          ls
+
       - name: serverless deploy
         uses: serverless/github-action@master
         with:
