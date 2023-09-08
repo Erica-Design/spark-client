@@ -14,9 +14,11 @@ jobs:
         run: |
           yarn install
           yarn run deploy
-      - name: Run ls on workplace
+
+      - name: make onBoarding folder in output
+        working-directory: ${{ github.workspace }}
         run: |
-          ls -alR ${{ github.workspace }}
+          mkdir -p output/onBoarding
 
       - name: serverless deploy
         uses: serverless/github-action@master
