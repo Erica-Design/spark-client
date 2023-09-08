@@ -15,15 +15,15 @@ jobs:
           yarn install
           yarn run deploy
 
-      - name: make onBoarding folder in output
-        working-directory: ./out
-        run: |
-          mkdir -p onBoarding
+      # - name: make onBoarding folder in output
+      #   working-directory: ./out
+      #   run: |
+      #     mkdir -p onBoarding
 
-      - name: ls output
-        working-directory: ./out
-        run: |
-          ls
+      # - name: ls output
+      #   working-directory: ./out
+      #   run: |
+      #     ls
 
       - name: serverless deploy
         uses: serverless/github-action@master
