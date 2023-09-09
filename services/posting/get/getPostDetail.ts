@@ -5,13 +5,18 @@ const getPostDetail = async (id: number) => {
     const accessToken = localStorage.getItem("accessToken");
     let response;
     if (accessToken) {
-      response = await axios.get(`https://api.sparkhyu.com/posts/${id}`, {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
+      response = await axios.get(
+        `https://xq13ns6jwd.execute-api.us-east-1.amazonaws.com/prod/posts/${id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
         },
-      });
+      );
     } else {
-      response = await axios.get(`https://api.sparkhyu.com/posts/${id}`);
+      response = await axios.get(
+        `https://xq13ns6jwd.execute-api.us-east-1.amazonaws.com/prod/posts/${id}`,
+      );
     }
     return response.data;
   } catch (e) {
@@ -23,5 +28,5 @@ const getPostDetail = async (id: number) => {
 
 export default getPostDetail;
 
-// https://api.sparkhyu.com/posts/best -> 스파크 픽 디자인
-// https://api.sparkhyu.com/users/me or /users/1 -> 마이페이지 데이터
+// https://xq13ns6jwd.execute-api.us-east-1.amazonaws.com/prod/posts/best -> 스파크 픽 디자인
+// https://xq13ns6jwd.execute-api.us-east-1.amazonaws.com/prod/users/me or /users/1 -> 마이페이지 데이터
