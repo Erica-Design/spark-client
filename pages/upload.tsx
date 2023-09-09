@@ -20,6 +20,24 @@ interface UploadForm {
 }
 
 export default function Page() {
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const sidebar = document.querySelector(".sidebar");
+
+      if (sidebar instanceof HTMLElement) {
+        const newPosition = scrollY + 45;
+        sidebar.style.transform = `translateY(${newPosition}px)`;
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   const { register, handleSubmit, watch, setValue, getValues } =
     useForm<UploadForm>({
       defaultValues: {
@@ -471,9 +489,7 @@ export default function Page() {
         />
       </div>
       <div
-        className={`absolute top-${
-          20 + scrollY / 10
-        } right-[2.5%] w-32 h-72 border-2 border-black space-y-2 transition-transform duration-300 transform`}
+        className={`sidebar absolute top-0 right-[2.5%] w-32 h-72 border-2 border-black space-y-2 transition-transform duration-300 transform`}
       >
         <div
           onClick={() => {
@@ -498,14 +514,13 @@ export default function Page() {
             동영상 링크
           </span>
         </div>
+        <button
+          className={`absolute -bottom-10 -left-[0.15em]
+          }rem]  w-32 h-10 border border-black bg-black text-white font-Pretendard text-1rem font-bold transition-transform duration-300 transform`}
+        >
+          다음
+        </button>
       </div>
-      <button
-        className={`absolute top-[${
-          24 + scrollY / 10
-        }rem] right-[2.5%] w-32 h-10 border border-black bg-black text-white font-Pretendard text-1rem font-bold transition-transform duration-300 transform`}
-      >
-        다음
-      </button>
     </form>
   );
 }
