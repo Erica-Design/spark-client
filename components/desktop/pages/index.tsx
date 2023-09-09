@@ -179,11 +179,7 @@ const DesktopMainPage: React.FC<DesktopPageProps> = ({
         </div>
       </div>
       <div>
-        <Modal
-          isOpen={isOpen}
-          closeModal={closeModal}
-          id={selectedWork?.id ?? "1"}
-        />
+        <Modal isOpen={isOpen} closeModal={closeModal} id={selectedWork?.id} />
       </div>
     </Fragment>
   );

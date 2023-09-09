@@ -1,30 +1,29 @@
-import { useQuery } from "@tanstack/react-query";
 import React, { useEffect, useRef, useState } from "react";
-import getPosting from "@services/posting/get/getPosting";
 import Image from "next/image";
-import MenuIcon from "@icons/menu.svg";
+import { Post } from "@utils/types";
 import getPostDetail from "@services/posting/get/getPostDetail";
 
 interface PostPageProps {
-  id?: any;
+  id?: number;
   isOpen: boolean;
   closeModal: () => void;
 }
 
 const Modal = ({ isOpen, closeModal, id }: PostPageProps) => {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState<boolean>(false);
   const [showModal, setShowModal] = useState(false);
   const modalRef = useRef<any>(null);
-
-  const [nowCategory, setNowCategory] = useState([]);
+  const [selectedPost, setSelectedPost] = useState<Post | null>(null);
 
   const openModal = () => {
     setOpen(true);
   };
 
-  const closeModal1 = () => {
-    setOpen(false);
-  };
+  useEffect(() => {
+    if (id) {
+      getPostDetail(id).then((response) => setSelectedPost(response));
+    }
+  }, [id]);
 
   const handleClickOutside = (e: any) => {
     if (modalRef.current && !modalRef.current.contains(e.target)) {
@@ -41,23 +40,7 @@ const Modal = ({ isOpen, closeModal, id }: PostPageProps) => {
 
   // modal 이미지 불러오기
 
-  const { data: workData, isLoading: workIsLoading } = useQuery(
-    ["Posting", nowCategory],
-    () => getPosting(nowCategory),
-  );
-
-  const { data: workDetails, isLoading: detailLoading } = useQuery(
-    ["Details", id],
-    () => getPostDetail(+id),
-  );
-
-  if (detailLoading || workIsLoading) {
-    return <div>Loading...</div>;
-  }
-
   const indexToShow = 0; // 나타낼 작업물의 인덱스를 설정하세요.
-
-  const selectedWork = workData?.[indexToShow];
 
   if (!isOpen) return null;
 
@@ -71,20 +54,6 @@ const Modal = ({ isOpen, closeModal, id }: PostPageProps) => {
         <div>
           <div className="p-4 pl-6">
             <div className="flex">
-              <p className="text-black font-['Pretendard'] text-[20px] font-bold">
-                {selectedWork?.title}
-              </p>
-              <p className="text-[10px] bg-[#F0F0F0] w-[114px] text-center self-center text-[#656565] font-['SUIT'] ml-3">
-                {selectedWork?.categories[0]}
-              </p>
-              <Image
-                className="ml-auto cursor-pointer"
-                src={MenuIcon}
-                alt=""
-                width={3}
-                height={15}
-                onClick={openModal}
-              />
               {open && (
                 <div
                   ref={modalRef}
@@ -176,8 +145,8 @@ const Modal = ({ isOpen, closeModal, id }: PostPageProps) => {
               )}
             </div>
             <div className="flex items-center space-x-3">
-              <p className="text-[20px] font-bold">{workDetails?.title}</p>
-              {workDetails?.categories?.map(
+              <p className="text-[20px] font-bold">{selectedPost?.title}</p>
+              {selectedPost?.categories?.map(
                 (category: string, index: number) => {
                   return (
                     <div
@@ -193,11 +162,11 @@ const Modal = ({ isOpen, closeModal, id }: PostPageProps) => {
             <div>
               <div className="flex items-center space-x-2 py-3 text-[14px] font-bold w-auto">
                 <p className="flex justify-center border-[1px] border-black space-x-2 items-center w-4 h-4 p-3 font-['Pretendard']">
-                  {workDetails?.author?.departmentCode}
+                  {selectedPost?.author?.departmentCode}
                 </p>
                 <p className="font-['Pretendard'] font-medium text-[#747474]">
-                  {workDetails?.author?.username}(
-                  {workDetails?.author?.shortStudentNumber})
+                  {selectedPost?.author?.username}(
+                  {selectedPost?.author?.shortStudentNumber})
                 </p>
               </div>
             </div>
@@ -205,7 +174,7 @@ const Modal = ({ isOpen, closeModal, id }: PostPageProps) => {
           <div>
             <div className="w-full bg-black border border-white">
               <div className="w-[60%] bg-white mx-auto">
-                {workDetails?.images?.map((res: any, index: number) => {
+                {selectedPost?.images?.map((res: any, index: number) => {
                   return (
                     <div className="relative mb-6" key={index}>
                       <Image

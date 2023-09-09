@@ -1,4 +1,5 @@
 import axios from "axios";
+import { BASE_URL } from "@services/base";
 
 interface ResetPasswordData {
   studentNumber: string;
@@ -8,7 +9,7 @@ interface ResetPasswordData {
 const resetPassword = async (resetData: ResetPasswordData) => {
   try {
     const response = await axios.post(
-      `http://localhost:8080/users/update-password`,
+      `${BASE_URL}/users/update-password`,
       resetData,
     );
     return response.status === 200;

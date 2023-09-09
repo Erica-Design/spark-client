@@ -1,8 +1,9 @@
 import axios from "axios";
+import { BASE_URL } from "@services/base";
 
 const getCategory = async () => {
   try {
-    const response = await axios.get<string[]>(`https://api.sparkhyu.com/categories`);
+    const response = await axios.get<string[]>(`${BASE_URL}/categories`);
     return response.data;
   } catch (e) {
     console.log(e);
