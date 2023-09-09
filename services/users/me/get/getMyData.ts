@@ -1,16 +1,14 @@
 import axios from "axios";
+import { BASE_URL } from "@services/base";
 
 const getMyData = async () => {
   const accessToken = localStorage.getItem("accessToken");
   try {
-    const response = await axios.get(
-      `https://xq13ns6jwd.execute-api.us-east-1.amazonaws.com/prod/users/me`,
-      {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-        },
+    const response = await axios.get(`${BASE_URL}/users/me`, {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
       },
-    );
+    });
     return response.data;
   } catch (e) {
     console.log(e);

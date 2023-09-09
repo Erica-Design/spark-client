@@ -1,11 +1,9 @@
 import axios from "axios";
+import { BASE_URL } from "@services/base";
 
 const registerUser = async (userData: any) => {
   try {
-    const response = await axios.post(
-      `https://xq13ns6jwd.execute-api.us-east-1.amazonaws.com/prod/users/register`,
-      userData,
-    );
+    const response = await axios.post(`${BASE_URL}/users/register`, userData);
     return response.data;
   } catch (e: any) {
     alert(e.response.data.message);

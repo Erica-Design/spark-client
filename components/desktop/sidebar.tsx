@@ -22,17 +22,13 @@ export default function SideBar() {
         </div>
       </div>
       <div className="flex justify-between w-48 border-b-[2px] border-black my-0.5 py-1 ">
-        <div>
-          <Link
-            href="/sparkStory"
-            className="font-['Pretendard'] font-bold text-[1rem]"
-          >
-            SPARK 스토리
-          </Link>
-        </div>
-        <div>
+        <Link
+          href="/sparkStory"
+          className="font-['Pretendard'] font-bold text-[1rem] w-full flex flex-row justify-between"
+        >
+          <span>SPARK 스토리</span>
           <Image width={24} height={24} src={ArrowLeft} alt="ArrowLeft Icon" />
-        </div>
+        </Link>
       </div>
       <div className="flex justify-between w-48 border-b-[2px] border-black py-1">
         <div>

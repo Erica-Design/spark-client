@@ -1,11 +1,9 @@
 import axios from "axios";
+import { BASE_URL } from "@services/base";
 
 const login = async (userData: any) => {
   try {
-    const response = await axios.post(
-      `https://xq13ns6jwd.execute-api.us-east-1.amazonaws.com/prod/users/login`,
-      userData,
-    );
+    const response = await axios.post(`${BASE_URL}/users/login`, userData);
     const { accessToken, refreshToken } = response.data;
     localStorage.setItem("accessToken", accessToken);
     localStorage.setItem("refreshToken", refreshToken);

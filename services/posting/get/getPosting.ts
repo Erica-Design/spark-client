@@ -1,11 +1,10 @@
 import axios from "axios";
 import { Post } from "@utils/types";
+import { BASE_URL } from "@services/base";
 
 const getPosting = async (categories: string[]) => {
   try {
-    const response = await axios.get<Post[]>(
-      "https://xq13ns6jwd.execute-api.us-east-1.amazonaws.com/prod/posts",
-    );
+    const response = await axios.get<Post[]>(`${BASE_URL}/posts`);
     return response.data;
   } catch (e) {
     console.log(e);

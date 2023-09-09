@@ -1,9 +1,10 @@
 import axios from "axios";
+import { BASE_URL } from "@services/base";
 
 const requestPassword = async (userData: any) => {
   try {
     const response = await axios.post(
-      `http://localhost:8080/users/request-modify`,
+      `${BASE_URL}/users/request-modify`,
       userData,
     );
     return response.status === 200;

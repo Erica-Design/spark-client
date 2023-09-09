@@ -1,10 +1,11 @@
 import axios from "axios";
+import { BASE_URL } from "@services/base";
 
 const uploadFiles = async (title, type, thumbnail, categories, images) => {
   const accessToken = localStorage.getItem("accessToken");
   try {
     const res = await axios.post(
-      `https://xq13ns6jwd.execute-api.us-east-1.amazonaws.com/prod/posts`,
+      `${BASE_URL}/posts`,
       {
         title,
         type,

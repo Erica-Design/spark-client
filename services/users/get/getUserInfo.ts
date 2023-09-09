@@ -1,10 +1,9 @@
 import axios from "axios";
+import { BASE_URL } from "@services/base";
 
 const getUserInfo = async (id: number) => {
   try {
-    const res = await axios.get(
-      `https://xq13ns6jwd.execute-api.us-east-1.amazonaws.com/prod/users/${id}`,
-    );
+    const res = await axios.get(`${BASE_URL}/users/${id}`);
     return res.data;
   } catch (e) {
     console.log(e);

@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import getCategory from "../services/category/get/getCategory";
+import getCategory from "@services/category/get/getCategory";
 import Image from "next/image";
 import ImageIcon from "@icons/imageIcon.svg";
 import VideoIcon from "@icons/videoIcon.svg";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
-import DraggableImage from "../components/desktop/upload/draggableImage";
+import DraggableImage from "@components/desktop/upload/draggableImage";
 import { useForm } from "react-hook-form";
 import AWS from "aws-sdk";
 import uploadFiles from "@services/posting/post/uploadFiles";

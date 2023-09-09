@@ -1,10 +1,9 @@
 import axios from "axios";
+import { BASE_URL } from "@services/base";
 
 const getCategory = async () => {
   try {
-    const response = await axios.get<string[]>(
-      `https://xq13ns6jwd.execute-api.us-east-1.amazonaws.com/prod/categories`,
-    );
+    const response = await axios.get<string[]>(`${BASE_URL}/categories`);
     return response.data;
   } catch (e) {
     console.log(e);
