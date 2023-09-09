@@ -2,7 +2,13 @@ import { useDrag, useDrop } from "react-dnd";
 import React from "react";
 import YouTube from "react-youtube";
 
-const DraggableImage = ({ imageLink, index, moveItem }) => {
+interface ImageForm {
+  imageLink?: string;
+  index?: any;
+  moveItem: any;
+}
+
+const DraggableImage = ({ imageLink, index, moveItem }: ImageForm) => {
   const [, ref] = useDrag({
     type: "IMAGE",
     item: { index },
@@ -10,7 +16,7 @@ const DraggableImage = ({ imageLink, index, moveItem }) => {
 
   const [, drop] = useDrop({
     accept: "IMAGE",
-    hover: (draggedItem) => {
+    hover: (draggedItem: any) => {
       if (draggedItem.index !== index) {
         moveItem(draggedItem.index, index);
         draggedItem.index = index;
