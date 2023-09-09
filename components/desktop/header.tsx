@@ -22,7 +22,7 @@ export default function Header() {
       <div className="relative">
         <div className="flex items-center space-x-3.5 ">
           <input
-            className="w-96 h-9 px-5 bg-[#F0F0F0]"
+            className="w-96 h-9 px-5 bg-[#F0F0F0] tracking-wider"
             placeholder="SEARCH HERE..."
           />
           <LoginButton

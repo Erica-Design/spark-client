@@ -88,7 +88,7 @@ export default function DesktopRegister({ departments }: RegisterProps) {
     <div>
       <div className="flex">
         <div
-          className={`absolute top-0 w-4/5 h-screen flex items-center justify-center ${
+          className={`absolute top-0 w-2/3 h-screen flex items-center justify-center ${
             successRegister
               ? "bg-[rgba(0,0,0,0.7)] blur-[2px] transition-all duration-100"
               : "bg-white"

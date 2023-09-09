@@ -30,13 +30,13 @@ const DesktopLoginPage = () => {
   return (
     <form
       onSubmit={onSubmit}
-      className="absolute top-0 w-4/5 h-screen flex items-center justify-center bg-white"
+      className="absolute top-0 w-2/3 h-screen flex items-center justify-center bg-white"
     >
       <div className="w-[25rem] h-[30rem]">
         <h1 className="text-[2rem] font-bold text-center font-['Pretendard']">
           로그인
         </h1>
-        <hr className="w-full h-1 mt-5 bg-[#000000]" />
+        <hr className="w-full h-1 mt-5 bg-[#D9D9D9]" />
         <div>
           <div className="mt-8">
             <h4 className="font-semibold font-['Pretendard']">아이디</h4>
