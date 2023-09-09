@@ -4,15 +4,11 @@ import { BASE_URL } from "@services/base";
 const createScrap = async (id: number) => {
   const accessToken = localStorage.getItem("accessToken");
   try {
-    const response = await axios.post(
-      `${BASE_URL}/users/scrap/${id}`,
-      {},
-      {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-        },
+    const response = await axios.post(`${BASE_URL}/users/scrap/${id}`, null, {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
       },
-    );
+    });
     return response.data;
   } catch (e: any) {
     alert(e.response.data.message);
