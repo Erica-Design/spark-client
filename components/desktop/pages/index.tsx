@@ -13,6 +13,7 @@ import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
 import Typography from "@mui/material/Typography";
 import WorkDetails from "@components/desktop/workDetails";
+import { Button } from "@mui/material";
 
 interface DesktopPageProps {
   categories?: string[];
@@ -23,15 +24,13 @@ interface DesktopPageProps {
 }
 
 const style = {
-  position: "absolute" as "absolute",
+  position: "absolute",
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  bgcolor: "background.paper",
-  boxShadow: 24,
   maxHeight: "95vh",
   p: 4,
-  overflowY: "scroll",
+  outline: "none",
 };
 
 const NextArrow = () => {
@@ -199,25 +198,21 @@ const DesktopMainPage: React.FC<DesktopPageProps> = ({
           )}
         </div>
       </div>
-      <Modal
-        aria-labelledby="transition-modal-title"
-        aria-describedby="transition-modal-description"
-        open={open}
-        onClose={handleClose}
-        closeAfterTransition
-        slots={{ backdrop: Backdrop }}
-        slotProps={{
-          backdrop: {
-            timeout: 500,
-          },
-        }}
-      >
-        <Fade in={open}>
-          <Box sx={style}>
-            <WorkDetails id={selectedWork?.id || 0} />
-          </Box>
-        </Fade>
-      </Modal>
+      <div>
+        <Modal
+          aria-labelledby="transition-modal-title"
+          aria-describedby="transition-modal-description"
+          open={open}
+          onClose={handleClose}
+          closeAfterTransition
+        >
+          <Fade in={open}>
+            <Box sx={style}>
+              <WorkDetails id={selectedWork?.id || 0} />
+            </Box>
+          </Fade>
+        </Modal>
+      </div>
     </Fragment>
   );
 };
