@@ -58,8 +58,8 @@ export default function Page() {
     }
   };
 
-  const [thumbnailLink, setThumbnailLink] = useState("");
-  const [imageLink, setImageLink] = useState([]);
+  const [thumbnailLink, setThumbnailLink] = useState<string>("");
+  const [imageLink, setImageLink] = useState<string[]>([]);
 
   const handleThumbnailImageInput = async (
     event: React.ChangeEvent<HTMLInputElement>,
@@ -112,8 +112,9 @@ export default function Page() {
           secretAccessKey: SECRET_KEY_ID ?? "",
         }),
       });
+      const filesArray = Array.from(files);
 
-      for (const file of files) {
+      const uploadPromises = filesArray.map(async (file) => {
         const upload = new AWS.S3.ManagedUpload({
           params: {
             ACL: "public-read",
@@ -123,14 +124,26 @@ export default function Page() {
             ContentType: file.type,
           },
         });
+
         try {
           const promise = await upload.promise();
           console.log("Uploaded file:", promise.Key);
           console.log("File URL:", promise.Location);
-          setImageLink((prevImageLink) => [...prevImageLink, promise.Location]);
+          return promise.Location;
         } catch (error) {
           console.error("Error uploading file:", error);
+          throw error;
         }
+      });
+
+      try {
+        const uploadedFileUrls = await Promise.all(uploadPromises);
+        setImageLink((prevImageLink) => [
+          ...prevImageLink,
+          ...uploadedFileUrls,
+        ]);
+      } catch (error) {
+        console.error("One or more file uploads failed:", error);
       }
     }
   };
@@ -142,10 +155,9 @@ export default function Page() {
       return newFiles;
     });
   };
-  const [videoFiles, setVideoFiles] = useState([]);
   const [showVideoInput, setShowVideoInput] = useState(false);
 
-  const handleImageDelete = (indexToDelete) => {
+  const handleImageDelete = (indexToDelete: number) => {
     setImageLink((prevImageLink) => {
       const updatedImageLink = [...prevImageLink];
       updatedImageLink.splice(indexToDelete, 1);
@@ -171,7 +183,7 @@ export default function Page() {
                 onClick={() => handleImageDelete(index)}
                 className="flex justify-center border border-2 cursor-pointer"
               >
-                <p>이미지 삭제</p>
+                <p>삭제</p>
               </div>
               <DraggableImage
                 key={index}
@@ -366,13 +378,13 @@ export default function Page() {
             {imageUpload}
           </div>
           {showVideoInput && (
-            <div className="flex justify-center">
+            <div className="flex justify-center pt-16 pb-10">
               <input
                 className=" w-[85em] border-[1px] border-black px-5 py-2 text-[12px] font-['Pretendard']"
                 type="text"
                 placeholder="동영상 링크를 입력하세요"
                 onBlur={(e) => {
-                  setImageFiles([...imageFiles, e.target.value]);
+                  setImageLink([...imageLink, e.target.value]);
                   setShowVideoInput(false);
                 }}
               />
