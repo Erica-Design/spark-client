@@ -4,10 +4,15 @@ import "slick-carousel/slick/slick-theme.css";
 import Image from "next/image";
 import React, { Fragment, useState } from "react";
 import useModal from "@hooks/useModal";
-import Modal from "@hooks/modal";
 import NextArrowImage from "@icons/slideAfter.svg";
 import BeforeArrowImage from "@icons/slideBefore.svg";
 import { Post } from "@utils/types";
+import Backdrop from "@mui/material/Backdrop";
+import Box from "@mui/material/Box";
+import Modal from "@mui/material/Modal";
+import Fade from "@mui/material/Fade";
+import Typography from "@mui/material/Typography";
+import WorkDetails from "@components/desktop/workDetails";
 
 interface DesktopPageProps {
   categories?: string[];
@@ -16,6 +21,18 @@ interface DesktopPageProps {
   choices: string[];
   handleChoices: (category: string) => void;
 }
+
+const style = {
+  position: "absolute" as "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  bgcolor: "background.paper",
+  boxShadow: 24,
+  maxHeight: "95vh",
+  p: 4,
+  overflowY: "scroll",
+};
 
 const NextArrow = () => {
   return (
@@ -61,6 +78,10 @@ const DesktopMainPage: React.FC<DesktopPageProps> = ({
       behavior: "smooth", // 스무스한 애니메이션으로 스크롤 이동
     });
   };
+
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   return (
     <Fragment>
@@ -139,7 +160,7 @@ const DesktopMainPage: React.FC<DesktopPageProps> = ({
                         className="group-hover/work:bg-gradient-to-t group-hover/work:from-black/50  group-hover/work:via-white  group-hover/work:to-transparent border border-gray-500 w-[320px] h-[227px] mb-2 "
                         onClick={() => {
                           setSelectedWork(post);
-                          openModal();
+                          setOpen(true);
                           scrollToTop();
                         }}
                       >
@@ -178,9 +199,25 @@ const DesktopMainPage: React.FC<DesktopPageProps> = ({
           )}
         </div>
       </div>
-      <div>
-        <Modal isOpen={isOpen} closeModal={closeModal} id={selectedWork?.id} />
-      </div>
+      <Modal
+        aria-labelledby="transition-modal-title"
+        aria-describedby="transition-modal-description"
+        open={open}
+        onClose={handleClose}
+        closeAfterTransition
+        slots={{ backdrop: Backdrop }}
+        slotProps={{
+          backdrop: {
+            timeout: 500,
+          },
+        }}
+      >
+        <Fade in={open}>
+          <Box sx={style}>
+            <WorkDetails id={selectedWork?.id || 0} />
+          </Box>
+        </Fade>
+      </Modal>
     </Fragment>
   );
 };
