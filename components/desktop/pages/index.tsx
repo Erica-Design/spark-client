@@ -177,7 +177,7 @@ const DesktopMainPage: React.FC<DesktopPageProps> = ({
                         <div className="flex items-center space-x-2 py-1 text-[14px] font-bold w-72 flex-nowrap">
                           <p className="font-['Pretendard']">{post.title}</p>
                         </div>
-                        <div className="space-x-1 flex">
+                        <div className="gap-2 flex flex-wrap w-80 ">
                           {post.categories.map(
                             (category: string, index: number) => {
                               return (
