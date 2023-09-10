@@ -51,6 +51,7 @@ const BeforeArrow = () => {
 
 const settings = {
   dots: false,
+  arrow: true,
   infinite: true,
   slidesToShow: 3,
   slidesToScroll: 1,
@@ -96,7 +97,7 @@ const DesktopMainPage: React.FC<DesktopPageProps> = ({
             <Slider {...settings} className="desktopslide">
               {sparkPosts?.map((post: Post, index: number) => {
                 return (
-                  <div className="relative mt-3" key={index}>
+                  <div className="relative mt-3 outline-none" key={index}>
                     <Image
                       src={
                         post.thumbnail ?? "https://via.placeholder.com/472x324"
