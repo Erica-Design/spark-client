@@ -35,6 +35,8 @@ const WorkDetails = ({ id }: PostPageProps) => {
       .catch((e) => console.log(e));
   };
 
+  console.log("post??", selectedPost);
+
   if (!selectedPost) {
     return <div>Loading...</div>;
   }
@@ -127,29 +129,31 @@ const WorkDetails = ({ id }: PostPageProps) => {
         </div>
         <div>
           <div className="overflow-y-auto">
-            {selectedPost?.images?.map((res: any, index: number) => {
-              return (
-                <div className="relative mb-6" key={index}>
-                  {res?.url.includes("youtube") ? (
-                    <YouTube
-                      videoId={res?.url?.split("v=")[1]}
-                      opts={options}
-                      onEnd={(e) => {
-                        e.target.stopVideo(0);
-                      }}
-                    />
-                  ) : (
-                    <Image
-                      className="mx-auto"
-                      src={res?.url}
-                      alt="이미지 파일"
-                      width={650}
-                      height={450}
-                    />
-                  )}
-                </div>
-              );
-            })}
+            {selectedPost?.images
+              ?.sort((a, b) => a.order - b.order)
+              .map((res: any, index: number) => {
+                return (
+                  <div className="relative mb-6" key={index}>
+                    {res?.url.includes("youtube") ? (
+                      <YouTube
+                        videoId={res?.url?.split("v=")[1]}
+                        opts={options}
+                        onEnd={(e) => {
+                          e.target.stopVideo(0);
+                        }}
+                      />
+                    ) : (
+                      <Image
+                        className="mx-auto"
+                        src={res?.url}
+                        alt="이미지 파일"
+                        width={650}
+                        height={450}
+                      />
+                    )}
+                  </div>
+                );
+              })}
           </div>
         </div>
       </div>
