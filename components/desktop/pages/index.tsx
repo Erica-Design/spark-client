@@ -157,7 +157,7 @@ const DesktopMainPage: React.FC<DesktopPageProps> = ({
                       } ${index === 1 ? "row-start-6" : ""}`}
                     >
                       <div
-                        className="group-hover/work:bg-gradient-to-t group-hover/work:from-black/50  group-hover/work:via-white  group-hover/work:to-transparent border border-gray-500 w-[320px] h-[227px] mb-2 "
+                        className="group-hover/work:bg-gradient-to-t group-hover/work:from-black/50  group-hover/work:via-white group-hover/work:cursor-pointer  group-hover/work:to-transparent border border-gray-500 w-[320px] h-[227px] mb-2 "
                         onClick={() => {
                           setSelectedWork(post);
                           setOpen(true);
