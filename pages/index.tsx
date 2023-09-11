@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import useMobile from "@hooks/useMobile";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import getCategory from "@services/category/get/getCategory";
 import getPosting from "@services/posting/get/getPosting";
@@ -17,14 +17,14 @@ const Home: NextPage = () => {
   const [choices, setChoices] = useState<string[]>([]);
 
   // hooks
-  // useEffect(() => {
-  //     const hasVisitedOnBoarding = localStorage.getItem('visitedOnBoarding');
-  //
-  //     if (!hasVisitedOnBoarding) {
-  //         // 사용자가 onBoarding 페이지를 방문하지 않았다면, onBoarding 페이지로 이동
-  //         router.push('/onBoarding');
-  //     }
-  // }, [router]);
+  useEffect(() => {
+    const hasVisitedOnBoarding = localStorage.getItem("visitedOnBoarding");
+
+    if (!hasVisitedOnBoarding) {
+      // 사용자가 onBoarding 페이지를 방문하지 않았다면, onBoarding 페이지로 이동
+      router.push("/onBoarding").then(() => {});
+    }
+  }, [router]);
 
   // functions
   const handleChoices = (category: string) => {
