@@ -60,8 +60,8 @@ const WorkDetails = ({ id }: PostPageProps) => {
             className={`bg-white border border-[#757575] shadow-xl w-[190px]  z-20 absolute right-[5.5%] mt-8`}
           >
             <div className="text-center justify-center">
-              <div className="flex items-center space-x-2.5 cursor-pointer">
-                {user?.id === selectedPost?.author.id && (
+              {Number(user?.id) === Number(selectedPost?.author.id) && (
+                <div className="flex items-center space-x-2.5 cursor-pointer">
                   <div className="p-3">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -96,22 +96,23 @@ const WorkDetails = ({ id }: PostPageProps) => {
                       />
                     </svg>
                   </div>
-                )}
-                <p
-                  className="font-['Pretendard'] font-medium text-[0.81rem]"
-                  onClick={() =>
-                    deletePost(Number(selectedPost?.id) ?? 0).then(
-                      (response) => {
-                        if (response) {
-                          router.push("/").then(() => {});
-                        }
-                      },
-                    )
-                  }
-                >
-                  삭제하기
-                </p>
-              </div>
+
+                  <p
+                    className="font-['Pretendard'] font-medium text-[0.81rem]"
+                    onClick={() =>
+                      deletePost(Number(selectedPost?.id) ?? 0).then(
+                        (response) => {
+                          if (response) {
+                            router.push("/").then(() => {});
+                          }
+                        },
+                      )
+                    }
+                  >
+                    삭제하기
+                  </p>
+                </div>
+              )}
             </div>
           </div>
         )}
@@ -135,9 +136,11 @@ const WorkDetails = ({ id }: PostPageProps) => {
               )}
             </div>
           </div>
-          <div onClick={() => setOpen(!open)}>
-            <Image width={4} height={16} src={MenuIcon} alt="menuIcon" />
-          </div>
+          {Number(user?.id) === Number(selectedPost?.author.id) && (
+            <div onClick={() => setOpen(!open)}>
+              <Image width={4} height={16} src={MenuIcon} alt="menuIcon" />
+            </div>
+          )}
         </div>
         <div>
           <div className="flex items-center space-x-2 py-3 text-[14px] font-bold w-auto">

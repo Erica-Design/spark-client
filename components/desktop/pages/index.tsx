@@ -7,13 +7,10 @@ import useModal from "@hooks/useModal";
 import NextArrowImage from "@icons/slideAfter.svg";
 import BeforeArrowImage from "@icons/slideBefore.svg";
 import { Post } from "@utils/types";
-import Backdrop from "@mui/material/Backdrop";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
-import Typography from "@mui/material/Typography";
 import WorkDetails from "@components/desktop/workDetails";
-import { Button } from "@mui/material";
 
 interface DesktopPageProps {
   categories?: string[];
@@ -97,7 +94,15 @@ const DesktopMainPage: React.FC<DesktopPageProps> = ({
             <Slider {...settings} className="desktopslide">
               {sparkPosts?.map((post: Post, index: number) => {
                 return (
-                  <div className="relative mt-3 outline-none" key={index}>
+                  <div
+                    className="relative mt-3 outline-none"
+                    key={index}
+                    onClick={() => {
+                      setSelectedWork(post);
+                      setOpen(true);
+                      scrollToTop();
+                    }}
+                  >
                     <Image
                       src={
                         post.thumbnail ?? "https://via.placeholder.com/472x324"
