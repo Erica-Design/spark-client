@@ -9,7 +9,7 @@ const deletePost = async (id: number) => {
         Authorization: `Bearer ${accessToken}`,
       },
     });
-    return response.data;
+    return response.status === 204;
   } catch (e) {
     return null;
   }

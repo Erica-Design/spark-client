@@ -100,8 +100,12 @@ const WorkDetails = ({ id }: PostPageProps) => {
                 <p
                   className="font-['Pretendard'] font-medium text-[0.81rem]"
                   onClick={() =>
-                    deletePost(Number(selectedPost?.id) ?? 0).then(() =>
-                      router.push("/"),
+                    deletePost(Number(selectedPost?.id) ?? 0).then(
+                      (response) => {
+                        if (response) {
+                          router.push("/").then(() => {});
+                        }
+                      },
                     )
                   }
                 >
