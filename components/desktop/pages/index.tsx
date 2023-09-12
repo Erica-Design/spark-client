@@ -121,22 +121,24 @@ const DesktopMainPage: React.FC<DesktopPageProps> = ({
             <div className="absolute w-32 h-96 top-[9rem] right-[-1rem] bg-white blur-[20px] flex-shrink-0 cursor-pointer z-10"></div>
           </div>
         </div>
-        <div className="flex flex-wrap max-w-5xl text-[14px] justify-center">
-          {categories?.map((category: string, index: number) => {
-            return (
-              <div onClick={() => handleChoices(category)} key={index}>
-                <div className="mr-2 my-2 cursor-pointer">
-                  <h2
-                    className={`bg-[#f0f0f0] w-full px-2 py-1 font-['SUIT'] font-medium ${
-                      choices.includes(category) && "bg-black text-white"
-                    }`}
-                  >
-                    {category}
-                  </h2>
+        <div className="flex flex-row justify-center">
+          <div className="flex flex-wrap max-w-3xl text-[14px] justify-start">
+            {categories?.map((category: string, index: number) => {
+              return (
+                <div onClick={() => handleChoices(category)} key={index}>
+                  <div className="mr-2 my-2 cursor-pointer">
+                    <h2
+                      className={`bg-[#f0f0f0] w-full px-2 py-1 font-['SUIT'] font-medium ${
+                        choices.includes(category) && "bg-black text-white"
+                      }`}
+                    >
+                      {category}
+                    </h2>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
         <div className="mt-10 pb-20">
           <h1 className="underline underline-offset-1 font-bold mb-16 text-[1.5rem] font-['Pretendard']">
