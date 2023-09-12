@@ -186,77 +186,77 @@ export default function MobilePostPage() {
             );
           })}
         </div>
-        <div className="flex flex-wrap border border-black p-1 my-3">
-          <div className="flex ml-1">
-            <svg
-              className="self-center"
-              xmlns="http://www.w3.org/2000/svg"
-              width="17"
-              height="17"
-              viewBox="0 0 17 17"
-              fill="none"
-            >
-              <path
-                d="M2.83334 2.83301H14.1667C14.9458 2.83301 15.5833 3.47051 15.5833 4.24967V12.7497C15.5833 13.5288 14.9458 14.1663 14.1667 14.1663H2.83334C2.05417 14.1663 1.41667 13.5288 1.41667 12.7497V4.24967C1.41667 3.47051 2.05417 2.83301 2.83334 2.83301Z"
-                fill="white"
-                stroke="black"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M15.5833 4.25L8.50001 9.20833L1.41667 4.25"
-                stroke="black"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-            <span className="ml-1 font-['SUIT'] text-[0.75rem] self-center">
-              {}
-            </span>
-          </div>
-          <div className="flex ml-3">
-            <svg
-              className="self-center "
-              xmlns="http://www.w3.org/2000/svg"
-              width="17"
-              height="17"
-              viewBox="0 0 17 17"
-              fill="none"
-            >
-              <g clipPath="url(#clip0_727_2552)">
-                <path
-                  d="M12.0417 1.41699H4.95832C3.00231 1.41699 1.41666 3.00265 1.41666 4.95866V12.042C1.41666 13.998 3.00231 15.5837 4.95832 15.5837H12.0417C13.9977 15.5837 15.5833 13.998 15.5833 12.042V4.95866C15.5833 3.00265 13.9977 1.41699 12.0417 1.41699Z"
-                  fill="white"
-                  stroke="black"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M11.3333 8.05348C11.4207 8.64298 11.32 9.24504 11.0456 9.77403C10.7711 10.303 10.3368 10.732 9.80447 10.9999C9.27214 11.2678 8.66889 11.3611 8.0805 11.2664C7.49212 11.1717 6.94857 10.894 6.52716 10.4725C6.10576 10.0511 5.82796 9.50759 5.73328 8.91921C5.6386 8.33082 5.73187 7.72757 5.9998 7.19524C6.26774 6.66291 6.6967 6.22862 7.22568 5.95415C7.75467 5.67967 8.35673 5.57898 8.94624 5.66639C9.54756 5.75556 10.1043 6.03576 10.5341 6.46561C10.9639 6.89546 11.2442 7.45215 11.3333 8.05348Z"
-                  fill="white"
-                  stroke="black"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M12.3958 4.60449H12.4021"
-                  stroke="#747474"
-                  strokeWidth="1.4"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </g>
-              <defs>
-                <clipPath id="clip0_727_2552">
-                  <rect width="17" height="17" fill="white" />
-                </clipPath>
-              </defs>
-            </svg>
-            <span className="ml-1 font-['SUIT'] text-[0.75rem] self-center">
-              @d1t1dus
-            </span>
-          </div>
-        </div>
+        {/* 인스타그램 추후 처리 */}
+        {/*<div className="flex flex-wrap border border-black p-1 my-3">*/}
+        {/*  <div className="flex ml-1">*/}
+        {/*    <svg*/}
+        {/*      className="self-center"*/}
+        {/*      xmlns="http://www.w3.org/2000/svg"*/}
+        {/*      width="17"*/}
+        {/*      height="17"*/}
+        {/*      viewBox="0 0 17 17"*/}
+        {/*      fill="none"*/}
+        {/*    >*/}
+        {/*      <path*/}
+        {/*        d="M2.83334 2.83301H14.1667C14.9458 2.83301 15.5833 3.47051 15.5833 4.24967V12.7497C15.5833 13.5288 14.9458 14.1663 14.1667 14.1663H2.83334C2.05417 14.1663 1.41667 13.5288 1.41667 12.7497V4.24967C1.41667 3.47051 2.05417 2.83301 2.83334 2.83301Z"*/}
+        {/*        fill="white"*/}
+        {/*        stroke="black"*/}
+        {/*        strokeLinecap="round"*/}
+        {/*        strokeLinejoin="round"*/}
+        {/*      />*/}
+        {/*      <path*/}
+        {/*        d="M15.5833 4.25L8.50001 9.20833L1.41667 4.25"*/}
+        {/*        stroke="black"*/}
+        {/*        strokeLinecap="round"*/}
+        {/*        strokeLinejoin="round"*/}
+        {/*      />*/}
+        {/*    </svg>*/}
+        {/*    <span className="ml-1 font-['SUIT'] text-[0.75rem] self-center">*/}
+        {/*    </span>*/}
+        {/*  </div>*/}
+        {/*  <div className="flex ml-3">*/}
+        {/*    <svg*/}
+        {/*      className="self-center "*/}
+        {/*      xmlns="http://www.w3.org/2000/svg"*/}
+        {/*      width="17"*/}
+        {/*      height="17"*/}
+        {/*      viewBox="0 0 17 17"*/}
+        {/*      fill="none"*/}
+        {/*    >*/}
+        {/*      <g clipPath="url(#clip0_727_2552)">*/}
+        {/*        <path*/}
+        {/*          d="M12.0417 1.41699H4.95832C3.00231 1.41699 1.41666 3.00265 1.41666 4.95866V12.042C1.41666 13.998 3.00231 15.5837 4.95832 15.5837H12.0417C13.9977 15.5837 15.5833 13.998 15.5833 12.042V4.95866C15.5833 3.00265 13.9977 1.41699 12.0417 1.41699Z"*/}
+        {/*          fill="white"*/}
+        {/*          stroke="black"*/}
+        {/*          strokeLinecap="round"*/}
+        {/*          strokeLinejoin="round"*/}
+        {/*        />*/}
+        {/*        <path*/}
+        {/*          d="M11.3333 8.05348C11.4207 8.64298 11.32 9.24504 11.0456 9.77403C10.7711 10.303 10.3368 10.732 9.80447 10.9999C9.27214 11.2678 8.66889 11.3611 8.0805 11.2664C7.49212 11.1717 6.94857 10.894 6.52716 10.4725C6.10576 10.0511 5.82796 9.50759 5.73328 8.91921C5.6386 8.33082 5.73187 7.72757 5.9998 7.19524C6.26774 6.66291 6.6967 6.22862 7.22568 5.95415C7.75467 5.67967 8.35673 5.57898 8.94624 5.66639C9.54756 5.75556 10.1043 6.03576 10.5341 6.46561C10.9639 6.89546 11.2442 7.45215 11.3333 8.05348Z"*/}
+        {/*          fill="white"*/}
+        {/*          stroke="black"*/}
+        {/*          strokeLinecap="round"*/}
+        {/*          strokeLinejoin="round"*/}
+        {/*        />*/}
+        {/*        <path*/}
+        {/*          d="M12.3958 4.60449H12.4021"*/}
+        {/*          stroke="#747474"*/}
+        {/*          strokeWidth="1.4"*/}
+        {/*          strokeLinecap="round"*/}
+        {/*          strokeLinejoin="round"*/}
+        {/*        />*/}
+        {/*      </g>*/}
+        {/*      <defs>*/}
+        {/*        <clipPath id="clip0_727_2552">*/}
+        {/*          <rect width="17" height="17" fill="white" />*/}
+        {/*        </clipPath>*/}
+        {/*      </defs>*/}
+        {/*    </svg>*/}
+        {/*    <span className="ml-1 font-['SUIT'] text-[0.75rem] self-center">*/}
+        {/*      @d1t1dus*/}
+        {/*    </span>*/}
+        {/*  </div>*/}
+        {/*</div>*/}
       </div>
       <MobileFooter />
     </div>
