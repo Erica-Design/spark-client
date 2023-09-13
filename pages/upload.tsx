@@ -22,6 +22,7 @@ interface UploadForm {
 
 export default function Page() {
   const router = useRouter();
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
@@ -69,6 +70,16 @@ export default function Page() {
     getCategory,
   );
 
+  useEffect(() => {
+    if (categories) {
+      const accessToken =
+        typeof window !== "undefined" && localStorage.getItem("accessToken");
+      if (!accessToken) {
+        router.push("/");
+      }
+    }
+  }, [categories]);
+
   const [thumbnailLink, setThumbnailLink] = useState<string>("");
   const [imageLink, setImageLink] = useState<string[]>([]);
 
@@ -94,7 +105,7 @@ export default function Page() {
         params: {
           ACL: "public-read",
           Bucket: "spark-media",
-          Key: "thumbnail/" + file.name,
+          Key: "thumbnail/" + guid(),
           Body: file,
           ContentType: file.type,
         },
@@ -103,6 +114,27 @@ export default function Page() {
       setThumbnailLink(promise?.Location || "");
     }
   };
+
+  function guid() {
+    function _s4() {
+      return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
+    }
+
+    return (
+      _s4() +
+      _s4() +
+      "-" +
+      _s4() +
+      "-" +
+      _s4() +
+      "-" +
+      _s4() +
+      "-" +
+      _s4() +
+      _s4() +
+      _s4()
+    );
+  }
 
   const handleImageInputs = async (
     event: React.ChangeEvent<HTMLInputElement>,
@@ -127,7 +159,7 @@ export default function Page() {
           params: {
             ACL: "public-read",
             Bucket: "spark-media",
-            Key: "images/" + file.name,
+            Key: "images/" + guid(),
             Body: file,
             ContentType: file.type,
           },
@@ -234,6 +266,10 @@ export default function Page() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  if (!user) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <form
