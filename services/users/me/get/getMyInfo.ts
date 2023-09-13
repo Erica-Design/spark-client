@@ -11,8 +11,8 @@ const getMyInfo = async () => {
     });
     return response.data;
   } catch (e) {
-    console.log(e);
-    alert("정보를 가져오는데 실패했습니다. 관리자에게 문의 바랍니다.");
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("refreshToken");
     return null;
   }
 };
