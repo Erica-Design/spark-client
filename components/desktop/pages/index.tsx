@@ -3,7 +3,6 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import Image from "next/image";
 import React, { Fragment, useState } from "react";
-import useModal from "@hooks/useModal";
 import NextArrowImage from "@icons/slideAfter.svg";
 import BeforeArrowImage from "@icons/slideBefore.svg";
 import { Post } from "@utils/types";
@@ -66,7 +65,6 @@ const DesktopMainPage: React.FC<DesktopPageProps> = ({
   choices,
   handleChoices,
 }) => {
-  const { isOpen, openModal, closeModal } = useModal();
   const [selectedWork, setSelectedWork] = useState<Post | null>(null);
 
   const scrollToTop = () => {

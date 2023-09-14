@@ -11,6 +11,7 @@ import { useForm } from "react-hook-form";
 import AWS from "aws-sdk";
 import uploadFiles from "@services/posting/post/uploadFiles";
 import { useRouter } from "next/router";
+import useUser from "@hooks/useUser";
 
 interface UploadForm {
   title: string;
@@ -22,6 +23,7 @@ interface UploadForm {
 
 export default function Page() {
   const router = useRouter();
+  const user = useUser();
 
   useEffect(() => {
     const handleScroll = () => {
