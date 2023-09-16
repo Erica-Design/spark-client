@@ -7,8 +7,12 @@ import Link from "next/link";
 import logout from "@services/users/logout/post/logout";
 import useUser from "@hooks/useUser";
 import LoginButton from "@components/desktop/loginButton";
+import { useForm } from "react-hook-form";
+import { useRouter } from "next/router";
 
 export default function Header() {
+  const { register, getValues } = useForm();
+  const router = useRouter();
   const user = useUser();
   const [open, setOpen] = useState(false);
   const modalRef = useRef<any>(null);
@@ -16,14 +20,24 @@ export default function Header() {
   const handleLogout = () => {
     logout(); //로그아웃 함수 호출
   };
+  const handleKeyPress = (e: any) => {
+    const keyword = getValues();
+    if (e?.key === "Enter") {
+      console.log(keyword);
+      router.push(`/search/${keyword?.search}`);
+    }
+  };
 
   return (
     <div>
       <div className="relative">
         <div className="flex items-center space-x-3.5 ">
           <input
-            className="w-96 h-9 px-5 bg-[#F0F0F0] tracking-wider"
+            type="text"
+            onKeyPress={handleKeyPress}
+            className="w-96 h-9 px-5 bg-[#F0F0F0] tracking-wider outline-none"
             placeholder="SEARCH HERE..."
+            {...register("search")}
           />
           <LoginButton
             ref={modalRef}

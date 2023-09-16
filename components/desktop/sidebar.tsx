@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function SideBar() {
   return (
-    <div>
+    <div className="py-8">
       <div className="flex justify-between w-48 pl-2 pr-3 pb-4">
         <div>
           <Image
