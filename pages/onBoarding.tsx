@@ -15,7 +15,7 @@ export default function MyPage() {
     if (
       !hasVisitedOnBoarding ||
       (hasVisitedOnBoarding &&
-        now.getTime() - new Date(hasVisitedOnBoarding).getTime() > 86400000)
+        now.getTime() - new Date(hasVisitedOnBoarding).getTime() > 24 * 60 * 60)
     ) {
       localStorage.setItem("visitedOnBoarding", now.toString());
     }
