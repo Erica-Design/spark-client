@@ -9,6 +9,7 @@ import Image from "next/image";
 import { calculateSize } from "@utils/imageSize";
 import { useRouter } from "next/router";
 import { Post } from "@utils/types";
+import CircularProgress from "@mui/material/CircularProgress";
 
 export default function MobilePostPage() {
   const user = useUser();
@@ -84,7 +85,12 @@ export default function MobilePostPage() {
     }
   };
 
-  if (!data) return <div>Loading...</div>;
+  if (!data)
+    return (
+      <div className="flex justify-center pt-[50vh] ">
+        <CircularProgress />
+      </div>
+    );
 
   return (
     <div>

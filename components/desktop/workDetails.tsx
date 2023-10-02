@@ -9,6 +9,7 @@ import { useRouter } from "next/router";
 import deleteScrap from "@services/posting/delete/deleteScrap";
 import deletePost from "@services/posting/delete/deletePost";
 import useUser from "@hooks/useUser";
+import CircularProgress from "@mui/material/CircularProgress";
 
 interface PostPageProps {
   id?: number;
@@ -47,9 +48,19 @@ const WorkDetails = ({ id }: PostPageProps) => {
       });
     }
   };
+  const deletePostHandler = (id: number) => {
+    deletePost(id).then(() => {
+      alert("성공적으로 삭제가 되었습니다.");
+      router.reload();
+    });
+  };
 
   if (!selectedPost) {
-    return <div>Loading...</div>;
+    return (
+      <div className="flex justify-center pt-[50vh] ">
+        <CircularProgress />
+      </div>
+    );
   }
   return (
     <div>
@@ -61,7 +72,10 @@ const WorkDetails = ({ id }: PostPageProps) => {
           >
             <div className="text-center justify-center">
               {Number(user?.id) === Number(selectedPost?.author.id) && (
-                <div className="flex items-center space-x-2.5 cursor-pointer">
+                <div
+                  className="flex items-center space-x-2.5 cursor-pointer"
+                  onClick={() => deletePostHandler(Number(selectedPost?.id))}
+                >
                   <div className="p-3">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -97,18 +111,7 @@ const WorkDetails = ({ id }: PostPageProps) => {
                     </svg>
                   </div>
 
-                  <p
-                    className="font-['Pretendard'] font-medium text-[0.81rem]"
-                    onClick={() =>
-                      deletePost(Number(selectedPost?.id) ?? 0).then(
-                        (response) => {
-                          if (response) {
-                            router.push("/").then(() => {});
-                          }
-                        },
-                      )
-                    }
-                  >
+                  <p className="font-['Pretendard'] font-medium text-[0.81rem]">
                     삭제하기
                   </p>
                 </div>

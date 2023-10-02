@@ -10,6 +10,7 @@ import MobileMainPage from "@components/mobile/pages";
 import { Post } from "@utils/types";
 import DesktopMainPage from "@components/desktop/pages";
 import BaseLayout from "@components/base/layout";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const Home: NextPage = () => {
   const isMobile = useMobile();
@@ -70,7 +71,11 @@ const Home: NextPage = () => {
   });
 
   if (categoryLoading || postsLoading || bestPostLoading)
-    return <div>Loading...</div>;
+    return (
+      <div className="flex justify-center pt-[50vh] ">
+        <CircularProgress />
+      </div>
+    );
 
   return (
     <BaseLayout isMobile={isMobile} isCloseButton={false}>

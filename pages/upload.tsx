@@ -11,6 +11,7 @@ import { useForm } from "react-hook-form";
 import AWS from "aws-sdk";
 import uploadFiles from "@services/posting/post/uploadFiles";
 import { useRouter } from "next/router";
+import CircularProgress from "@mui/material/CircularProgress";
 import useUser from "@hooks/useUser";
 
 interface UploadForm {
@@ -270,7 +271,11 @@ export default function Page() {
   }, []);
 
   if (!user) {
-    return <div>Loading...</div>;
+    return (
+      <div className="flex justify-center pt-[50vh] ">
+        <CircularProgress />
+      </div>
+    );
   }
 
   return (
@@ -538,7 +543,7 @@ export default function Page() {
           </span>
         </div>
         <button
-          className={`absolute -bottom-10 -left-[0.15em]
+          className={`absolute -bottom-16 -left-[0.05em]
           }rem]  w-32 h-10 border border-black bg-black text-white font-Pretendard text-1rem font-bold transition-transform duration-300 transform`}
         >
           다음
