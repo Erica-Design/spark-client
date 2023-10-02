@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import verifyUrl from "@services/users/verify/post/verifyUrl";
 import MobileReset from "@components/mobile/pages/password-reset";
+import CircularProgress from "@mui/material/CircularProgress";
 
 export default function FindPassword() {
   const isMobile = useMobile();
@@ -23,7 +24,12 @@ export default function FindPassword() {
     }
   }, [router]);
 
-  if (studentNumber === "") return <div>Loading...</div>;
+  if (studentNumber === "")
+    return (
+      <div className="flex justify-center pt-[50vh] ">
+        <CircularProgress />
+      </div>
+    );
 
   return (
     <BaseLayout

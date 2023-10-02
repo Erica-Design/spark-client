@@ -1,15 +1,22 @@
 import Image from "next/image";
 import SparkStorySvg from "../../../icons/spark.svg";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 export default function DesktopSparkStory() {
+  const router = useRouter();
+
   return (
     <div>
       <div className="w-full h-[3800px] bg-black">
         <div className="flex">
           <div>
-            <div className="flex justify-between w-44 pt-7 pl-4 pr-3 pb-4">
-              <div>
+            <div className="flex justify-between w-44 pt-7 pl-4 pr-3 pb-4 cursor-pointer">
+              <div
+                onClick={() => {
+                  router.push("/");
+                }}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -42,7 +49,7 @@ export default function DesktopSparkStory() {
             </div>
           </div>
         </div>
-        <div className="absolute max-w-7xl top-[17rem] left-[17%] leading-[53.6px]">
+        <div className="absolute max-w-7xl top-[17rem] left-[17%] leading-[53.6px] pr-32">
           <Image src={SparkStorySvg} alt="이미지파일" width={286} height={92} />
           <div>
             <h1 className="bg-[#34FB14] text-black text-[30px] font-['SUIT'] font-bold underline px-6 py-1 mt-4 mb-6 w-fit leading-[39px]">

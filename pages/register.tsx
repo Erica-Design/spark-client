@@ -4,6 +4,7 @@ import getDepartments from "@services/departments/get/getDepartments";
 import MobileRegister from "@components/mobile/pages/register";
 import DesktopRegister from "@components/desktop/pages/register";
 import BaseLayout from "@components/base/layout";
+import CircularProgress from "@mui/material/CircularProgress";
 
 interface JwtToken {
   accessToken: string;
@@ -18,7 +19,12 @@ export default function Login() {
     queryKey: ["departments"],
   });
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading)
+    return (
+      <div className="flex justify-center pt-[50vh] ">
+        <CircularProgress />
+      </div>
+    );
 
   return (
     <BaseLayout

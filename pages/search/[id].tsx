@@ -37,8 +37,6 @@ export default function SearchPage() {
     }
   }, [router.isReady, router.query]);
 
-  console.log(router?.query?.id);
-
   return (
     <div>
       <BaseLayout isMobile={false} isMenu={false}>
@@ -48,7 +46,7 @@ export default function SearchPage() {
               <span className=" font-bold"> &quot; {id} &quot; </span> 의 검색
               결과
             </h1>
-            {postData?.data?.length === 0 ? (
+            {postData?.length === 0 ? (
               <div className="ml-[28%]">
                 <p className="font-['Pretendard'] font-normal text-ce">
                   일치하는 검색 결과가 존재하지 않아요!
@@ -56,7 +54,7 @@ export default function SearchPage() {
               </div>
             ) : (
               <div className="flex flex-rows-4 flex-flow-col flex-wrap max-w-5xl gap-x-7 m-auto gap-y-8 ">
-                {postData?.data?.map((post: Post, index: number) => {
+                {postData?.map((post: Post, index: number) => {
                   return (
                     <div key={index} className="">
                       <div

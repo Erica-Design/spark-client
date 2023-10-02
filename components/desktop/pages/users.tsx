@@ -149,8 +149,9 @@ export default function DesktopUserPage({
           <div>
             <Slider
               infinite={false}
-              slidesToShow={4}
+              slidesToShow={3}
               slidesToScroll={1}
+              autoplay={true}
               nextArrow={<NextArrow />}
               className="max-w-[95rem] min-w-[30rem] m-auto space-x-2 mt-10 flex overflow-x-scroll mypage"
             >
