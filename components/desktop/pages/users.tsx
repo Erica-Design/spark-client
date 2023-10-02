@@ -2,17 +2,32 @@ import Link from "next/link";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { useState } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import NextArrowImage from "@icons/slideAfter.svg";
 import BeforeArrowImage from "@icons/slideBefore.svg";
 import { IUserDetailData } from "@hooks/useUser";
 import { DesktopPostWithoutName } from "@components/desktop/PostWithoutName";
+import Modal from "@mui/material/Modal";
+import Fade from "@mui/material/Fade";
+import Box from "@mui/material/Box";
+import WorkDetails from "@components/desktop/workDetails";
+import { Post } from "@utils/types";
 
 interface DesktopUserPageProps {
   userData: IUserDetailData | null;
   id: number | null;
 }
+
+const style = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  maxHeight: "95vh",
+  p: 4,
+  outline: "none",
+};
 
 export const NextArrow = () => {
   return (
@@ -32,12 +47,11 @@ export const BeforeArrow = () => {
 
 const settings = {
   dots: false,
-  infinite: true,
   slidesToShow: 3,
   slidesToScroll: 1,
   autoplay: true,
   speed: 600,
-  centerMode: false,
+  centerMode: true,
   nextArrow: <NextArrow />,
   prevArrow: <BeforeArrow />,
 };
@@ -80,6 +94,11 @@ export default function DesktopUserPage({
     }
   };
 
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+  const [selectedWork, setSelectedWork] = useState<Post | null>(null);
+
   if (!userData) return <div></div>;
 
   return (
@@ -118,7 +137,50 @@ export default function DesktopUserPage({
           <div className="pt-10">
             <Slider {...settings} className="desktopslide">
               {userData.posts?.map((post, index) => {
-                return <DesktopPostWithoutName key={index} post={post} />;
+                return (
+                  <div key={index} className="">
+                    <div
+                      className={`relative group/work ${
+                        index === 0 ? "row-end-2 row-span-2" : ""
+                      } ${index === 1 ? "row-start-6" : ""}`}
+                    >
+                      <div
+                        className="group-hover/work:bg-gradient-to-t group-hover/work:from-black/50  group-hover/work:via-white group-hover/work:cursor-pointer  group-hover/work:to-transparent border border-gray-500 w-[320px] h-[227px] mb-2 "
+                        onClick={() => {
+                          setSelectedWork(post);
+                          setOpen(true);
+                        }}
+                      >
+                        <img
+                          className="w-full h-[225px]"
+                          src={post.thumbnail}
+                          alt="작업물 이미지"
+                        />
+                        <p className="group-hover/work:block text-white hidden absolute bottom-16 left-3 font-['Pretendard'] px-4 py-4">
+                          {post.title}
+                        </p>
+                      </div>
+                      <div>
+                        <div className="flex items-center space-x-2 py-1 text-[14px] font-bold w-72 flex-nowrap">
+                          <p className="font-['Pretendard']">{post.title}</p>
+                        </div>
+                        <div className="gap-2 flex flex-wrap w-80 ">
+                          {post.categories.map(
+                            (category: string, index: number) => {
+                              return (
+                                <div key={index}>
+                                  <p className="text-[10px] bg-[#F0F0F0] w-fit px-1 text-center text-[#656565] font-['SUIT']">
+                                    {category}
+                                  </p>
+                                </div>
+                              );
+                            },
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                );
               })}
             </Slider>
           </div>
@@ -142,7 +204,7 @@ export default function DesktopUserPage({
         {userData.scrapPosts?.length === 0 ? (
           <div className="h-32">
             <p className="text-center self-center items-center font-['SUIT'] text-[13px] mt-20">
-              최근 업로드한 작업물이 없습니다.
+              최근 저장한 작업물이 없습니다.
             </p>
           </div>
         ) : (
@@ -156,11 +218,69 @@ export default function DesktopUserPage({
               className="max-w-[95rem] min-w-[30rem] m-auto space-x-2 mt-10 flex overflow-x-scroll mypage"
             >
               {userData.scrapPosts?.map((post, index) => {
-                return <DesktopPostWithoutName post={post} key={index} />;
+                return (
+                  <div key={index} className="">
+                    <div
+                      className={`relative group/work ${
+                        index === 0 ? "row-end-2 row-span-2" : ""
+                      } ${index === 1 ? "row-start-6" : ""}`}
+                    >
+                      <div
+                        className="group-hover/work:bg-gradient-to-t group-hover/work:from-black/50  group-hover/work:via-white group-hover/work:cursor-pointer  group-hover/work:to-transparent border border-gray-500 w-[320px] h-[227px] mb-2 "
+                        onClick={() => {
+                          setSelectedWork(post);
+                          setOpen(true);
+                        }}
+                      >
+                        <img
+                          className="w-full h-[225px]"
+                          src={post.thumbnail}
+                          alt="작업물 이미지"
+                        />
+                        <p className="group-hover/work:block text-white hidden absolute bottom-16 left-3 font-['Pretendard'] px-4 py-4">
+                          {post.title}
+                        </p>
+                      </div>
+                      <div>
+                        <div className="flex items-center space-x-2 py-1 text-[14px] font-bold w-72 flex-nowrap">
+                          <p className="font-['Pretendard']">{post.title}</p>
+                        </div>
+                        <div className="gap-2 flex flex-wrap w-80 ">
+                          {post.categories.map(
+                            (category: string, index: number) => {
+                              return (
+                                <div key={index}>
+                                  <p className="text-[10px] bg-[#F0F0F0] w-fit px-1 text-center text-[#656565] font-['SUIT']">
+                                    {category}
+                                  </p>
+                                </div>
+                              );
+                            },
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                );
               })}
             </Slider>
           </div>
         )}
+      </div>
+      <div>
+        <Modal
+          aria-labelledby="transition-modal-title"
+          aria-describedby="transition-modal-description"
+          open={open}
+          onClose={handleClose}
+          closeAfterTransition
+        >
+          <Fade in={open}>
+            <Box sx={style}>
+              <WorkDetails id={selectedWork?.id || 0} />
+            </Box>
+          </Fade>
+        </Modal>
       </div>
     </div>
   );

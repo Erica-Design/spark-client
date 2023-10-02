@@ -55,6 +55,8 @@ const WorkDetails = ({ id }: PostPageProps) => {
     });
   };
 
+  console.log(selectedPost);
+
   if (!selectedPost) {
     return (
       <div className="flex justify-center pt-[50vh] ">
