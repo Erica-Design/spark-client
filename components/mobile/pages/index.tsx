@@ -21,7 +21,7 @@ const MobileMainPage: React.FC<MainPageProps> = ({
   choices,
   handleChoices,
 }) => {
-  const itemsPerPage = 15; // 페이지당 표시할 아이템 수
+  const itemsPerPage = 3; // 페이지당 표시할 아이템 수
   const [currentPage, setCurrentPage] = useState(1); // 현재 페이지 번호
 
   // 현재 페이지에 해당하는 아이템 목록 계산
@@ -121,7 +121,7 @@ const MobileMainPage: React.FC<MainPageProps> = ({
       )}
       {/* 페이지네이션 컴포넌트 */}
       <div className="flex justify-end mt-14">
-        {Array.from({ length: Math.ceil(posts?.length / itemsPerPage) }).map((_, index) => (
+        {Array.from({ length: Math.ceil((posts?.length || 0) / itemsPerPage) }).map((_, index) => (
           <button
             key={index}
             onClick={() => paginate(index + 1)}
