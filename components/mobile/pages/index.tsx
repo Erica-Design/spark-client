@@ -39,11 +39,11 @@ const MobileMainPage: React.FC<MainPageProps> = ({
       <div
         className={`max-w-4xl m-auto text-[0.75rem] font-['SUIT'] font-medium whitespace-nowrap overflow-x-scroll`}
       >
-        <div className="flex flex-wrap w-[42rem]">
+        <div className="flex flex-wrap w-[42rem] mb-3">
           {categories?.map((category: string, index: number) => {
             return (
               <div key={index} onClick={() => handleChoices(category)}>
-                <div className="mr-2 my-[16px]">
+                <div className="mr-2 my-1.5">
                   <span
                     className={`${choices.includes(category)
                       ? "bg-black text-white"
@@ -86,12 +86,12 @@ const MobileMainPage: React.FC<MainPageProps> = ({
                       <div className="flex items-center space-x-2 pt-1.5 text-[16px] font-bold w-auto">
                         <p>{post.title}</p>
                       </div>
-                      <div className="space-x-1 flex mt-1 tracking-[0.4px]">
+                      <div className="flex flex-wrap tracking-[0.4px] mb-5">
                         {post.categories.map(
                           (category: string, index: number) => {
                             return (
-                              <div key={index} className="max-w-md mb-5">
-                                <p className="text-[10px] font-['SUIT'] font-medium bg-[#F0F0F0] w-fit px-1.5 py-0.5 text-center truncate text-[#656565]">
+                              <div key={index} className="max-w-md">
+                                <p className="text-[10px] font-['SUIT'] font-medium bg-[#F0F0F0] w-fit px-1.5 py-0.5 text-center truncate text-[#656565] mr-1 mb-1">
                                   {category}
                                 </p>
                               </div>
