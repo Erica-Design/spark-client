@@ -21,7 +21,7 @@ const MobileMainPage: React.FC<MainPageProps> = ({
   choices,
   handleChoices,
 }) => {
-  const itemsPerPage = 3; // 페이지당 표시할 아이템 수
+  const itemsPerPage = 18; // 페이지당 표시할 아이템 수
   const [currentPage, setCurrentPage] = useState(1); // 현재 페이지 번호
 
   // 현재 페이지에 해당하는 아이템 목록 계산

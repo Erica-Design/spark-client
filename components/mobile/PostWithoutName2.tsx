@@ -4,9 +4,9 @@ import Image from "next/image";
 export function MobilePostWithoutName2(props: { post: Post }) {
     return (
         <div className={`flex flex-col`}>
-            <div className="">
+            <div className=" ">
                 <img
-                    className="w-full h-56"
+                    className="w-full h-56 border border-black"
                     src={
                         props.post.thumbnail ??
                         "https://via.placeholder.com/208x144.png?text=No+Image"
