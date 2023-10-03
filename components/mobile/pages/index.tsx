@@ -32,7 +32,7 @@ const MobileMainPage: React.FC<MainPageProps> = ({
         <MobileSlider sparkPosts={sparkPosts} />
       </div>
       <div className="">
-        <h1 className="font-Pretendard text-[1.25rem] font-bold underline mt-6 mb-3.5">
+        <h1 className="font-Pretendard text-[1.25rem] font-bold underline mt-6">
           카테고리
         </h1>
       </div>
@@ -42,8 +42,8 @@ const MobileMainPage: React.FC<MainPageProps> = ({
         <div className="flex flex-wrap w-[42rem]">
           {categories?.map((category: string, index: number) => {
             return (
-              <div key={index} onClick={() => handleChoices(category)} className="my-1">
-                <div className="mr-2 mb-3">
+              <div key={index} onClick={() => handleChoices(category)}>
+                <div className="mr-2 my-[16px]">
                   <span
                     className={`${choices.includes(category)
                       ? "bg-black text-white"

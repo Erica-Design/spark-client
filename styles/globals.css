@@ -22,10 +22,6 @@ body {
     color: black;
 }
 
-.mypageimg img {
-    height: 144px;
-}
-
 @font-face {
     font-family: 'Pretendard';
     font-weight: 700;

@@ -5,7 +5,7 @@ export function MobilePostWithoutName(props: { post: Post }) {
   return (
     <div className={`flex`}>
       <div className="nth-child-5">
-        <div className="w-[13rem] h-36 border-black mypageimg">
+        <div className="w-[13rem] h-36 border-black ">
           <Image
             src={
               props.post.thumbnail ??
