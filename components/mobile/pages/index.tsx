@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { Post } from "@utils/types";
 import Slider from "react-slick";
 import MobileSlider from "@components/base/slider/mobile";
@@ -21,6 +21,18 @@ const MobileMainPage: React.FC<MainPageProps> = ({
   choices,
   handleChoices,
 }) => {
+  const itemsPerPage = 15; // 페이지당 표시할 아이템 수
+  const [currentPage, setCurrentPage] = useState(1); // 현재 페이지 번호
+
+  // 현재 페이지에 해당하는 아이템 목록 계산
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = posts?.slice(indexOfFirstItem, indexOfLastItem) || [];
+
+  // 페이지 변경 함수
+  const paginate = (pageNumber: number) => {
+    setCurrentPage(pageNumber);
+  };
   return (
     <div className="p-[18px] pt-10">
       <div>
@@ -70,7 +82,7 @@ const MobileMainPage: React.FC<MainPageProps> = ({
         </div>
       ) : (
         <div className="max-w-5xl m-auto space-y-7 mt-4">
-          {posts?.map((post: Post, index: number) => {
+          {currentItems?.map((post: Post, index: number) => {
             return (
               <Link key={index} href={`/posts/${post.id}`}>
                 <div key={index} className={`flex w-full`}>
@@ -107,6 +119,18 @@ const MobileMainPage: React.FC<MainPageProps> = ({
           })}
         </div>
       )}
+      {/* 페이지네이션 컴포넌트 */}
+      <div className="flex justify-end mt-14">
+        {Array.from({ length: Math.ceil(posts?.length / itemsPerPage) }).map((_, index) => (
+          <button
+            key={index}
+            onClick={() => paginate(index + 1)}
+            className={`text-2xl text-['SUIT'] mr-4 w-fit ${currentPage === index + 1 ? 'active text-black font-bold' : 'text-[#D4D4D4] font-normal'}`}
+          >
+            {index + 1}
+          </button>
+        ))}
+      </div>
     </div>
   );
 };

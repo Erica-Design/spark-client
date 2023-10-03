@@ -103,9 +103,8 @@ export default function MobilePostPage() {
             <div className="flex items-center space-x-2 cursor-pointer ml-auto">
               <div className="" onClick={toggleBookmark}>
                 <svg
-                  className={`${
-                    isBookmarked ? "fill-black" : "fill-white"
-                  } w-[26px] h-[26px]`}
+                  className={`${isBookmarked ? "fill-black" : "fill-white"
+                    } w-[26px] h-[26px]`}
                   xmlns="http://www.w3.org/2000/svg"
                   width="20"
                   height="20"
@@ -169,7 +168,7 @@ export default function MobilePostPage() {
         </div>
         {/* ... */}
       </div>
-      <div className="w-full px-5">
+      <div className="w-full px-5 mb-8">
         <div className="flex flex-wrap border border-black justify-center space-y-10 py-[34px]">
           {data?.images.map((post, index) => {
             const { width, height } = calculateSize(post.url);

@@ -36,7 +36,7 @@ const MobileSlider: FC<MobileSliderProps> = ({ sparkPosts }) => {
         {sparkPosts?.map((post: Post, index: number) => {
           return (
             <Link key={index} href={`/posts/${post.id}`}>
-              <div className="relative mt-3 mr-3 cursor-pointer" key={index}>
+              <div className="relative mt-3 mr-3 cursor-pointer border border-black" key={index}>
                 <Image
                   className="w-[209px] h-36"
                   width={210}
@@ -54,7 +54,7 @@ const MobileSlider: FC<MobileSliderProps> = ({ sparkPosts }) => {
       </Slider>
       <div className="flex">
         <div
-          className="absolute w-10 h-44 top-[8rem] right-0 bg-white blur-[9px] flex-shrink-0 cursor-pointer"
+          className="absolute w-10 h-44 top-[7.8rem] right-0 bg-white blur-[7px] flex-shrink-0 cursor-pointer"
           onClick={handleNextSlide}
         ></div>
         <button

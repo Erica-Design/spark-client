@@ -1,6 +1,6 @@
 export default function MobileFooter() {
     return (
-        <div className="mt-20 w-full h-auto bg-black ">
+        <div className="mt-4 w-full h-auto bg-black ">
             <div className="text-white font-['SUIT'] px-5 pt-[34px]">
                 <p className="text-[13px] font-semibold">
                     HANYANG UNIVERSITY ERICA <br /> COLLEGE OF DESIGN | 포트폴리오 웹사이트
