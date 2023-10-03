@@ -62,7 +62,11 @@ export default function MobileUserPage({ userData, id }: MobileUserPageProps) {
           ) : (
             <div className="max-w-5xl m-auto space-x-2 mt-3 flex overflow-x-scroll pl-[19px] mypage">
               {userData.posts?.map((post, index) => {
-                return <MobilePostWithoutName post={post} key={index} />;
+                return (
+                  <Link href={`/posts/${post.id}`}>
+                    <MobilePostWithoutName post={post} key={index} />
+                  </Link>
+                )
               })}
             </div>
           )}
@@ -103,7 +107,11 @@ export default function MobileUserPage({ userData, id }: MobileUserPageProps) {
           ) : (
             <div className="max-w-5xl m-auto space-x-2 mt-3 flex overflow-x-scroll pl-[19px] mypage">
               {userData.scrapPosts?.map((post, index) => {
-                return <MobilePostWithoutName post={post} key={index} />;
+                return (
+                  <Link href={`/posts/${post.id}`}>
+                    <MobilePostWithoutName post={post} key={index} />
+                  </Link>
+                )
               })}
             </div>
           )}

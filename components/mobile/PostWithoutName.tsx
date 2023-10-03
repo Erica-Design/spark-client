@@ -5,7 +5,7 @@ export function MobilePostWithoutName(props: { post: Post }) {
   return (
     <div className={`flex`}>
       <div className="nth-child-5">
-        <div className="w-[13rem] h-36 border-black ">
+        <div className="w-[13rem] h-[146px] border border-black userpage">
           <Image
             src={
               props.post.thumbnail ??
@@ -22,12 +22,12 @@ export function MobilePostWithoutName(props: { post: Post }) {
               {props.post.title}
             </span>
           </div>
-          <div className="max-w-md mx-auto space-x-1">
+          <div className="max-w-[13rem] flex flex-wrap">
             {props.post.categories.map((category, index) => {
               return (
                 <span
                   key={index}
-                  className="text-[10px] font-['SUIT'] bg-[#F0F0F0] w-fit px-2 py-1 font-medium text-center truncate text-[#656565]"
+                  className="text-[10px] font-['SUIT'] bg-[#F0F0F0] w-fit px-2 py-1 font-medium text-center truncate text-[#656565] mr-1 mt-1"
                 >
                   {category}
                 </span>
