@@ -61,7 +61,7 @@ export default function MobileUserPage({ userData, id }: MobileUserPageProps) {
             </div>
           ) : (
             <div className="max-w-5xl m-auto space-x-2 mt-3 flex overflow-x-scroll pl-[19px] mypage">
-              {userData.posts?.map((post, index) => {
+              {userData.posts?.map((post, index: number) => {
                 return (
                   <Link href={`/post/${post.id}`}>
                     <MobilePostWithoutName post={post} key={index} />
@@ -106,7 +106,7 @@ export default function MobileUserPage({ userData, id }: MobileUserPageProps) {
             </div>
           ) : (
             <div className="max-w-5xl m-auto space-x-2 mt-3 flex overflow-x-scroll pl-[19px] mypage">
-              {userData.scrapPosts?.map((post, index) => {
+              {userData.scrapPosts?.map((post, index: number) => {
                 return (
                   <Link href={`/post/${post.id}`}>
                     <MobilePostWithoutName post={post} key={index} />
