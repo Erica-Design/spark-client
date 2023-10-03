@@ -39,11 +39,11 @@ const MobileMainPage: React.FC<MainPageProps> = ({
       <div
         className={`max-w-4xl m-auto text-[0.75rem] font-['SUIT'] font-medium whitespace-nowrap overflow-x-scroll`}
       >
-        <div className="flex flex-wrap w-[42rem] mb-3">
+        <div className="flex flex-wrap w-[42rem]">
           {categories?.map((category: string, index: number) => {
             return (
               <div key={index} onClick={() => handleChoices(category)}>
-                <div className="mr-2 my-1.5">
+                <div className="mr-2 my-[16px]">
                   <span
                     className={`${choices.includes(category)
                       ? "bg-black text-white"
