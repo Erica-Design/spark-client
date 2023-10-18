@@ -113,7 +113,7 @@ export default function DesktopRegister({ departments }: RegisterProps) {
                 </h4>
                 <input
                   required
-                  className="w-full h-11 mt-3 pl-3 font-['Pretendard'] text-[0.88rem] border-[0.2rem] outline-none focus:border-black valid:border-black invalid:border-gray-300"
+                  className="w-full h-[50px] mt-3 pl-3 font-['Pretendard'] text-[0.88rem] border-[2px] outline-none focus:border-black valid:border-black invalid:border-gray-300"
                   placeholder="학번 입력"
                   {...register<"studentNumber">("studentNumber")}
                 />
@@ -126,7 +126,7 @@ export default function DesktopRegister({ departments }: RegisterProps) {
                 </h4>
                 <input
                   required
-                  className="w-full h-11 mt-3 pl-3 font-['Pretendard'] text-[0.88rem] outline-none border-[0.2rem] border-gray-300 focus:border-black valid:border-black invalid:border-gray-300"
+                  className="w-full h-[50px] mt-3 pl-3 font-['Pretendard'] text-[0.88rem] outline-none border-[2px] border-gray-300 focus:border-black valid:border-black invalid:border-gray-300"
                   placeholder="이메일을 입력해주세요"
                   {...register<"email">("email")}
                 />
@@ -142,7 +142,7 @@ export default function DesktopRegister({ departments }: RegisterProps) {
                 <input
                   required
                   type="password"
-                  className="w-full h-11 mt-3 pl-3 font-['Pretendard'] text-[0.88rem] border-[0.2rem] border-gray-300 focus:border-black outline-none valid:border-black invalid:border-gray-300"
+                  className="w-full h-[50px] mt-3 pl-3 font-['Pretendard'] text-[0.88rem] border-[2px] border-gray-300 focus:border-black outline-none valid:border-black invalid:border-gray-300"
                   placeholder="비밀번호 입력"
                   {...register<"password">("password")} // Register 'password' input with react-hook-form
                 ></input>
@@ -180,7 +180,7 @@ export default function DesktopRegister({ departments }: RegisterProps) {
                 <input
                   required
                   type="password"
-                  className="w-full h-11 mt-3 pl-3 font-['Pretendard'] text-[0.88rem] border-[0.2rem] border-gray-300 outline-none focus:border-black valid:border-black invalid:border-gray-300"
+                  className="w-full h-[50px] mt-3 pl-3 font-['Pretendard'] text-[0.88rem] border-[2px] border-gray-300 outline-none focus:border-black valid:border-black invalid:border-gray-300"
                   placeholder="비밀번호 확인"
                   {...register<"confirmPassword">("confirmPassword")} // Register 'confirmPassword' input with react-hook-form
                 ></input>
@@ -216,7 +216,7 @@ export default function DesktopRegister({ departments }: RegisterProps) {
                 </h4>
                 <input
                   required
-                  className="w-full h-11 mt-3 pl-3 font-['Pretendard'] text-[0.88rem] outline-none border-[0.2rem] border-gray-300 focus:border-black valid:border-black invalid:border-gray-300"
+                  className="w-full h-[50px] mt-3 pl-3 font-['Pretendard'] text-[0.88rem] outline-none border-[2px] border-gray-300 focus:border-black valid:border-black invalid:border-gray-300"
                   placeholder="이름 입력"
                   {...register<"username">("username")}
                 ></input>
@@ -227,7 +227,7 @@ export default function DesktopRegister({ departments }: RegisterProps) {
                   }}
                 >
                   <div
-                    className={`w-full h-11 mt-3 pt-2 pl-3 font-['Pretendard'] text-[0.88rem] outline-none border-[0.2rem] ${
+                    className={`w-full h-[50px] mt-3 pt-2 pl-3 font-['Pretendard'] text-[0.88rem] outline-none border-[2px] ${
                       selectedDepartment
                         ? "text-black border-gray-950"
                         : "text-[#757575] border-gray-300"
@@ -291,14 +291,14 @@ export default function DesktopRegister({ departments }: RegisterProps) {
                 </h4>
                 <input
                   required
-                  className="w-full h-11 mt-3 pl-3 font-['Pretendard'] text-[0.88rem] outline-none border-[0.2rem] border-gray-300 focus:border-black valid:border-black invalid:border-gray-300"
+                  className="w-full h-[50px] mt-3 pl-3 font-['Pretendard'] text-[0.88rem] outline-none border-[2px] border-gray-300 focus:border-black valid:border-black invalid:border-gray-300"
                   placeholder="이름 입력"
                   {...register<"username">("username")}
                 />
                 <div>
                   <input
                     required
-                    className="w-full h-11 mt-3 pl-3 font-['Pretendard'] text-[0.88rem] outline-none border-[0.2rem] border-gray-300 focus:border-black valid:border-black invalid:border-gray-300"
+                    className="w-full h-[50px] mt-3 pl-3 font-['Pretendard'] text-[0.88rem] outline-none border-[2px] border-gray-300 focus:border-black valid:border-black invalid:border-gray-300"
                     placeholder="학과 입력"
                     {...register<"departmentCode">("departmentCode")}
                   />
@@ -309,7 +309,7 @@ export default function DesktopRegister({ departments }: RegisterProps) {
               <div className={`${pageInput === 3 ? "hidden" : "block"}`}>
                 <button
                   onClick={onClick}
-                  className={`w-full h-11 font-['Pretendard'] font-bold ${
+                  className={`w-full h-[50px] font-['Pretendard'] font-bold ${
                     (pageInput === PageInput.STUDENT &&
                       studentNumber &&
                       studentNumber.length > 5) ||
@@ -357,7 +357,7 @@ export default function DesktopRegister({ departments }: RegisterProps) {
               <div>
                 <div className={`${pageInput === 3 ? "block" : "hidden"}`}>
                   <button
-                    className={`w-full h-11 font-['Pretendard'] text-[14px] ${
+                    className={`w-full h-[50px] font-['Pretendard'] text-[14px] ${
                       (pageInput === PageInput.STUDENT &&
                         studentNumber &&
                         studentNumber.length > 5) ||

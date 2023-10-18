@@ -41,7 +41,7 @@ const DesktopLoginPage = () => {
           <div className="mt-8">
             <h4 className="font-semibold font-['Pretendard']">아이디</h4>
             <input
-              className="w-full h-9 border-[0.2rem] border-black pl-2 outline-none font-semibold font-['SUIT']"
+              className="w-full h-[50px] border-[2px] border-black pl-2 outline-none font-semibold font-['SUIT']"
               {...register<"studentNumber">("studentNumber")}
             />
           </div>
@@ -50,14 +50,14 @@ const DesktopLoginPage = () => {
             <div className=" relative">
               <input
                 type="password"
-                className="w-full h-9 border-[0.2rem] border-black pl-2 outline-none font-semibold font-['SUIT']"
+                className="w-full h-[50px] border-[2px] border-black pl-2 outline-none font-semibold font-['SUIT']"
                 {...register<"password">("password")}
               />
             </div>
           </div>
         </div>
         <div className="w-full mt-8">
-          <button type="submit" className="w-full h-11 bg-black text-white">
+          <button type="submit" className="w-full h-[50px] bg-black text-white">
             로그인 하기
           </button>
           <div className="flex mt-4">
