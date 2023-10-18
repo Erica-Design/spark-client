@@ -3,7 +3,6 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import { Post } from "@utils/types";
-import Slider from "react-slick";
 import MobileSlider from "@components/base/slider/mobile";
 
 interface MainPageProps {
@@ -57,10 +56,11 @@ const MobileMainPage: React.FC<MainPageProps> = ({
               <div key={index} onClick={() => handleChoices(category)}>
                 <div className="mr-2 my-1.5">
                   <span
-                    className={`${choices.includes(category)
-                      ? "bg-black text-white"
-                      : "bg-[#f0f0f0]"
-                      } px-1 py-1`}
+                    className={`${
+                      choices.includes(category)
+                        ? "bg-black text-white"
+                        : "bg-[#f0f0f0]"
+                    } px-1 py-1`}
                   >
                     {category}
                   </span>
@@ -76,7 +76,7 @@ const MobileMainPage: React.FC<MainPageProps> = ({
         </h1>
       </div>
       {posts?.length === 0 ? (
-        <div className="text-center mt-10 font-medium">
+        <div className="text-center mt-10 my-16 font-medium">
           <p>아직 업로드된 게시글이 없어요!</p>
           <p className="underline">작업물 업로드 하러가기</p>
         </div>
@@ -121,11 +121,17 @@ const MobileMainPage: React.FC<MainPageProps> = ({
       )}
       {/* 페이지네이션 컴포넌트 */}
       <div className="flex justify-end mt-14">
-        {Array.from({ length: Math.ceil((posts?.length || 0) / itemsPerPage) }).map((_, index) => (
+        {Array.from({
+          length: Math.ceil((posts?.length || 0) / itemsPerPage),
+        }).map((_, index) => (
           <button
             key={index}
             onClick={() => paginate(index + 1)}
-            className={`text-2xl text-['SUIT'] mr-4 w-fit ${currentPage === index + 1 ? 'active text-black font-bold' : 'text-[#D4D4D4] font-normal'}`}
+            className={`text-2xl text-['SUIT'] mr-4 w-fit ${
+              currentPage === index + 1
+                ? "active text-black font-bold"
+                : "text-[#D4D4D4] font-normal"
+            }`}
           >
             {index + 1}
           </button>

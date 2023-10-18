@@ -59,8 +59,7 @@ export default function MobileRegister({ departments }: RegisterProps) {
           router.reload();
         }
       })
-      .catch((e) => {
-      });
+      .catch((e) => {});
   };
 
   const onClick = () => {
@@ -95,10 +94,11 @@ export default function MobileRegister({ departments }: RegisterProps) {
       {/*  Sidebar */}
       <div className="flex">
         <div
-          className={`w-full flex items-center justify-center ${pageInput === PageInput.MODAL
-            ? "blur-[1.5px] transition-all duration-100"
-            : "bg-white"
-            }`}
+          className={`w-full flex items-center justify-center ${
+            pageInput === PageInput.MODAL
+              ? "blur-[1.5px] transition-all duration-100"
+              : "bg-white"
+          }`}
         >
           <form className="w-[400px] p-5" onSubmit={handleSubmit(userSubmit)}>
             <h1 className="text-[2rem] pl-[6px] pt-[17px] font-bold font-['Pretendard']">
@@ -127,7 +127,7 @@ export default function MobileRegister({ departments }: RegisterProps) {
             {pageInput === PageInput.DETAIL && (
               <div className="">
                 <div className="flex">
-                  <h4 className="text-[1.25rem] mt-4 pl-[6px] font-semibold font-['Pretendard'] leading-[130%]">
+                  <h4 className="text-[1.25rem] mt-4 pl-[6px] font-semibold font-['Pretendard'] leading-[130%] z-50">
                     소속된 학과를
                     <br />
                     선택해주세요.
@@ -137,16 +137,17 @@ export default function MobileRegister({ departments }: RegisterProps) {
                   </span>
                 </div>
                 <div
-                  className="relative cursor-pointer"
+                  className="relative cursor-pointer z-50"
                   onClick={() => {
                     setDeparts(!departs);
                   }}
                 >
                   <div
-                    className={`w-full h-[50px] mt-3 pt-3.5 pl-3 font-['Pretendard'] font-medium text-[0.88rem] outline-none border ${selectedDepartment
-                      ? "text-black border-gray-950"
-                      : "text-[#757575] border-gray-300"
-                      }  valid:border-black invalid:border-gray-300`}
+                    className={`w-full h-[50px] mt-3 pt-3.5 pl-3 font-['Pretendard'] font-medium text-[0.88rem] outline-none border ${
+                      selectedDepartment
+                        ? "text-black border-gray-950"
+                        : "text-[#757575] border-gray-300"
+                    }  valid:border-black invalid:border-gray-300`}
                     {...register<keyof RegisterForm>("departmentCode")}
                   >
                     {selectedDepartment ?? "학과 입력"}
@@ -176,8 +177,7 @@ export default function MobileRegister({ departments }: RegisterProps) {
                 </div>
                 {departs && (
                   <div className="relative">
-                    <div
-                      className="w-full h-40 border border-[#d9d9d9] font-medium absolute bg-white p-3 mt-2 space-y-4 flex flex-col">
+                    <div className="w-full h-40 border border-[#d9d9d9] font-medium absolute bg-white p-3 mt-2 space-y-4 flex flex-col">
                       {departments.map((element, index) => (
                         <label
                           className="flex items-center cursor-pointer"
@@ -185,7 +185,7 @@ export default function MobileRegister({ departments }: RegisterProps) {
                           onClick={() => handleDepartment(element)}
                         >
                           <input
-                            className="w-3.5 h-3.5 accent-black"
+                            className="w-3.5 h-3.5 accent-black outline-none focus:ring-0 ring-0 focus:outline-none"
                             type="checkbox"
                           />
                           <span
@@ -585,13 +585,15 @@ export default function MobileRegister({ departments }: RegisterProps) {
               </div>
             )}
             <div
-              className={`w-full mt-8 ${pageInput === PageInput.CONFRIM ? "block" : "hidden"
-                }`}
+              className={`w-full mt-8 ${
+                pageInput === PageInput.CONFRIM ? "block" : "hidden"
+              }`}
             >
               <button
-                className={`w-full h-[50px] font-['Pretendard'] text-[14px] font-bold ${(pageInput === PageInput.STUDENT &&
-                  studentNumber &&
-                  studentNumber.length > 5) ||
+                className={`w-full h-[50px] font-['Pretendard'] text-[14px] font-bold ${
+                  (pageInput === PageInput.STUDENT &&
+                    studentNumber &&
+                    studentNumber.length > 5) ||
                   (pageInput === PageInput.EMAIL && email) ||
                   (pageInput === PageInput.PASSWORD &&
                     password &&
@@ -604,9 +606,9 @@ export default function MobileRegister({ departments }: RegisterProps) {
                   (pageInput === PageInput.NAME && username) ||
                   (pageInput === PageInput.DETAIL && selectedDepartment) ||
                   pageInput === PageInput.MODAL
-                  ? "bg-black"
-                  : "bg-[#C4C4C4]"
-                  } text-white transition-all duration-500`}
+                    ? "bg-black"
+                    : "bg-[#C4C4C4]"
+                } text-white transition-all duration-500`}
                 disabled={
                   !(
                     (pageInput === PageInput.STUDENT &&
@@ -630,14 +632,16 @@ export default function MobileRegister({ departments }: RegisterProps) {
               </button>
             </div>
             <div
-              className={`w-full mt-8 ${pageInput === PageInput.CONFRIM ? "hidden" : "block"
-                }`}
+              className={`w-full mt-8 ${
+                pageInput === PageInput.CONFRIM ? "hidden" : "block"
+              }`}
             >
               <button
                 onClick={onClick}
-                className={`w-full h-[50px] font-['Pretendard'] text-[14px] font-bold ${(pageInput === PageInput.STUDENT &&
-                  studentNumber &&
-                  studentNumber.length > 5) ||
+                className={`w-full h-[50px] font-['Pretendard'] text-[14px] font-bold ${
+                  (pageInput === PageInput.STUDENT &&
+                    studentNumber &&
+                    studentNumber.length > 5) ||
                   (pageInput === PageInput.EMAIL && email) ||
                   (pageInput === PageInput.PASSWORD &&
                     password &&
@@ -650,9 +654,9 @@ export default function MobileRegister({ departments }: RegisterProps) {
                   (pageInput === PageInput.NAME && username) ||
                   (pageInput === PageInput.DETAIL && selectedDepartment) ||
                   pageInput === PageInput.MODAL
-                  ? "bg-black"
-                  : "bg-[#C4C4C4]"
-                  } text-white transition-all duration-500`}
+                    ? "bg-black"
+                    : "bg-[#C4C4C4]"
+                } text-white transition-all duration-500`}
                 disabled={
                   !(
                     (pageInput === PageInput.STUDENT &&
@@ -683,8 +687,7 @@ export default function MobileRegister({ departments }: RegisterProps) {
             onRequestClose={() => setIsModalOpen(false)}
             className="w-full h-screen flex justify-center items-center bg-[rgba(0,0,0,0.7)] px-3 transition-all duration-200"
           >
-            <div
-              className="flex-1 flex bg-white items-center justify-center h-28 border border-black transition-all duration-200">
+            <div className="flex-1 flex bg-white items-center justify-center h-28 border border-black transition-all duration-200">
               <Link className="text-center" href="/login">
                 <span className="text-center font-['Pretendard'] font-normal text-[15px]">
                   안녕하세요 <span className="font-bold">{username}</span>님,

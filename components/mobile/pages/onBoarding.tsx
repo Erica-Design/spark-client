@@ -24,31 +24,32 @@ export default function MobileOnBoarding() {
 
   return (
     <div className="bg-black">
-      <div className="flex absolute px-[14px] pt-8 w-full">
-        <Image src={OnBoardLogo} alt="로고" />
-        <div className="text-white">
-          <h1 className="font-['SUIT'] font-normal text-[0.56rem] mt-1">
-            SPARK:
-          </h1>
-          <h1 className="font-['SUIT'] font-bold text-[0.56rem] mt-[-0.3rem] flex">
-            <span className="font-normal mr-1">ERICA DESIGN</span> ARCHIVING
-          </h1>
-        </div>
-        <Link href={displayText && "/"}>
-          <div className=" w-8 h-8 flex-shrink-0 text-[14px] font-bold border border-white absolute flex right-3.5">
-            <span className="self-center mx-auto font-['SUIT'] text-white ml-auto">
-              {displayText || countdown}
-            </span>
-          </div>
-        </Link>
-      </div>
       <div className="flex flex-col items-center justify-center">
+        <div className="flex absolute px-[14px] pt-16 w-full z-40">
+          <Image src={OnBoardLogo} alt="로고" />
+          <div className="text-white">
+            <h1 className="font-['SUIT'] font-normal text-[0.56rem] mt-1">
+              SPARK:
+            </h1>
+            <h1 className="font-['SUIT'] font-bold text-[0.56rem] mt-[-0.3rem] flex">
+              <span className="font-normal mr-1">ERICA DESIGN</span> ARCHIVING
+            </h1>
+          </div>
+          <Link href={displayText && "/"}>
+            <div className=" w-8 h-8 -mt-1 flex-shrink-0 text-[14px] font-bold border border-white absolute flex right-3.5">
+              <span className="self-center mx-auto font-['SUIT'] text-white ml-auto">
+                {displayText || countdown}
+              </span>
+            </div>
+          </Link>
+        </div>
         <Image
-          className="w-full h-screen"
+          className="w-full h-screen z-0"
           src={"/onBoarding/mobile.gif"}
           alt="온보딩이미지"
+          fill
         />
-        <div className="absolute bottom-10">
+        <div className="absolute bottom-10 z-40">
           <Link
             href="/sparkStory"
             className="text-white font-['SUIT'] font-normal text-[14px] underline"

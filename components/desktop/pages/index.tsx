@@ -88,7 +88,7 @@ const DesktopMainPage: React.FC<DesktopPageProps> = ({
             </h1>
           </div>
           <div className="max-w-6xl pt-10">
-            <div className="absolute w-32 h-[25rem] top-[10rem] left-[17%] bg-white blur-[20px] flex-shrink-0 cursor-pointer z-10"></div>
+            {/*<div className="absolute w-32 h-[25rem] top-[10rem] left-[17%] bg-white blur-[20px] flex-shrink-0 cursor-pointer z-10"></div>*/}
             <Slider {...settings} className="desktopslide">
               {sparkPosts?.map((post: Post, index: number) => {
                 return (
@@ -116,7 +116,7 @@ const DesktopMainPage: React.FC<DesktopPageProps> = ({
                 );
               })}
             </Slider>
-            <div className="absolute w-32 h-96 top-[9rem] right-[-1rem] bg-white blur-[20px] flex-shrink-0 cursor-pointer z-10"></div>
+            {/*<div className=" w-32 h-full right-[1rem] bg-white blur-[20px] flex-shrink-0 cursor-pointer z-10"></div>*/}
           </div>
         </div>
         <div className="flex flex-row justify-center">

@@ -89,7 +89,7 @@ function DesktopOnBoarding() {
 
   return (
     <div
-      className="h-screen text-white"
+      className="h-screen text-white w-screen overflow-hidden"
       style={{
         backgroundImage: "url('/onBoarding/02.gif')",
         backgroundSize: "cover",
